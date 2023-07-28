@@ -1,0 +1,10 @@
+pysofar
+pytest
+numpy
+pandas
+boto3
+xarray
+requests
+numba
+numba_progress
+scipy
