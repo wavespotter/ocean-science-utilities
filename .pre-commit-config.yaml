@@ -1,0 +1,29 @@
+fail_fast: false
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-merge-conflict
+      - id: debug-statements
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+        exclude: (workdir/,output_files/)
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.1.1
+    hooks:
+      - id: pydocstyle
+        args: [--ignore=D107,D204]
+  - repo: local
+    hooks:
+      - id: pdoc
+        name: pdoc
+        language: system
+        entry: python -m pip install pdoc3 && cd src && pdoc --pdf . > ../README.md
+
