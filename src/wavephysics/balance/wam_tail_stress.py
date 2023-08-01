@@ -32,6 +32,7 @@ def log_dimensionless_critical_height(
     )
 
 
+
 @numba.njit()
 def integrate_tail_frequency_distribution(
     lower_bound, effective_charnock, vonkarman_constant, wave_age_tuning_parameter
