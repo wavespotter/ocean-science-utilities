@@ -1,6 +1,6 @@
 import numpy as np
 
-from tools.solvers import fixed_point_iteration
+from ocean_science_utilities.tools.solvers import fixed_point_iteration
 
 
 def test_fixed_point():
@@ -18,6 +18,7 @@ def test_fixed_point():
 
     np.testing.assert_allclose(res1, _func(res1), rtol=rtol, atol=atol)
     np.testing.assert_allclose(res2, _func(res2), rtol=rtol, atol=atol)
+
 
 if __name__ == "__main__":
     test_fixed_point()

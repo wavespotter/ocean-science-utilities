@@ -8,3 +8,4 @@ requests
 numba
 numba_progress
 scipy
+cvxopt

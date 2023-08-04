@@ -4,7 +4,7 @@ with open("README.md", "r") as file:
     readme_contents = file.read()
 
 setuptools.setup(
-    name="ocean-science-utilities",
+    name="ocean-science_utilities",
     version="0.0.0",
     license="Apache 2 License",
     install_requires=[
@@ -18,14 +18,23 @@ setuptools.setup(
         "numba",
         "numba_progress",
     ],
+    extras_require={
+        "full": [
+            "qpsolvers",
+            "cvxopt",
+        ],
+        "optimization": [
+            "cvxopt",
+        ]
+    },
     description="Python package to interact with Sofar wave data",
     long_description=readme_contents,
     long_description_content_type="text/markdown",
     author="Pieter Bart Smit",
     author_email="sofaroceangithubbot@gmail.com",
-    url="https://github.com/sofarocean/ocean-science-utilities.git",
+    url="https://github.com/wavespotter/ocean-science-utilities.git",
     package_dir={"": "src"},
-    packages=setuptools.find_packages("src"),
+    packages=setuptools.find_namespace_packages("src"),
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.11",

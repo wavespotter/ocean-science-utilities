@@ -2,6 +2,9 @@
 .env
 *.pyc
 */__pycache__/*
+*__pycache__*
+*.vscode
+mypy.ini
 .venv
 venv
 *.DS_Store

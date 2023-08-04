@@ -2,7 +2,7 @@ import numpy as np
 import xarray
 from datetime import datetime, timezone, timedelta
 
-from tools.time import (
+from ocean_science_utilities.tools.time import (
     time_from_timeint,
     date_from_dateint,
     datetime_from_time_and_date_integers,
@@ -45,12 +45,13 @@ def test_datetime_conversions():
     datetimes = to_datetime_utc(times)
 
     for index, date in enumerate(datetimes):
-        assert (
-            date == TEST_DATETIME
-        ), f"date {date} does not match {TEST_DATETIME} for input {times[index]} at {index}"
+        assert date == TEST_DATETIME, (
+            f"date {date} does not match {TEST_DATETIME}"
+            f" for input {times[index]} at {index}"
+        )
 
     datetimes = to_datetime64(datetimes)
-    assert datetimes[0].dtype == np.dtype("<M8[s]")
+    assert datetimes[0].dtype == np.dtype("<M8[ns]")
 
     datetimes = to_datetime_utc(datetimes)
 
