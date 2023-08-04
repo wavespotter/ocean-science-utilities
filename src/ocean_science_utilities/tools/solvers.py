@@ -5,7 +5,7 @@ from logging import DEBUG, INFO
 from typing import Callable, Optional, TypeVar
 from dataclasses import dataclass
 
-from ocean_science_utilities.tool_log import logger
+from ocean_science_utilities.tools.log import logger
 
 _T = TypeVar("_T", np.ndarray, xarray.DataArray)
 

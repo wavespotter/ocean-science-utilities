@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>ocean_science_utilities.wavephysics.balance.st4_wave_breaking API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ocean_science_utilities.wavephysics.balance.st4_wave_breaking</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numba  # type: ignore
+import numpy as np
+
+from typing import Optional, TypedDict
+
+from ocean_science_utilities.wavephysics.balance._numba_settings import numba_default
+from ocean_science_utilities.wavephysics.balance.dissipation import Dissipation
+from ocean_science_utilities.wavetheory.lineardispersion import (
+    inverse_intrinsic_dispersion_relation,
+    intrinsic_group_velocity,
+)
+
+
+class ST4WaveBreakingParameters(TypedDict):
+    saturation_breaking_constant: float
+    saturation_breaking_directional_control: float
+    saturation_cosine_power: float
+    saturation_integration_width_degrees: float
+    saturation_threshold: float
+    cumulative_breaking_constant: float
+    cumulative_breaking_max_relative_frequency: float
+
+
+class ST4WaveBreaking(Dissipation):
+    name = &#34;st4 dissipation&#34;
+
+    def __init__(self, parameters: Optional[ST4WaveBreakingParameters] = None):
+        super(ST4WaveBreaking, self).__init__(parameters)
+        self._dissipation_function = st4_dissipation_breaking
+
+    @staticmethod
+    def default_parameters() -&gt; ST4WaveBreakingParameters:  # type: ignore
+        return ST4WaveBreakingParameters(
+            saturation_breaking_constant=2.2e-05,
+            saturation_breaking_directional_control=0,
+            saturation_cosine_power=2,
+            saturation_integration_width_degrees=80,
+            saturation_threshold=0.0009,
+            cumulative_breaking_constant=0.4,
+            cumulative_breaking_max_relative_frequency=0.5,
+        )
+
+
+@numba.jit(**numba_default)
+def st4_band_integrated_saturation(
+    variance_density: np.typing.NDArray,
+    group_velocity: np.typing.NDArray,
+    wavenumber: np.typing.NDArray,
+    radian_direction: np.typing.NDArray,
+    direction_step: np.typing.NDArray,
+    number_of_frequencies: int,
+    number_of_directions: int,
+    integration_width_degrees: int,
+    cosine_power=2,
+):
+    directional_saturation_spec = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    band_integrated_saturation = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    integration_width_radians = integration_width_degrees * np.pi / 180
+
+    for frequency_index in range(number_of_frequencies):
+        directional_saturation_spec[frequency_index, :] = (
+            variance_density[frequency_index, :]
+            * group_velocity[frequency_index]
+            * wavenumber[frequency_index] ** 3
+            / 2
+            / np.pi
+        )
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            integrant = 0.0
+            for dummy_direction_index in range(number_of_directions):
+                mutual_angle = (
+                    radian_direction[dummy_direction_index]
+                    - radian_direction[direction_index]
+                    + np.pi
+                ) % (2 * np.pi) - np.pi
+                if np.abs(mutual_angle) &gt; integration_width_radians:
+                    continue
+
+                integrant += (
+                    directional_saturation_spec[frequency_index, dummy_direction_index]
+                    * np.cos(mutual_angle) ** cosine_power
+                    * direction_step[dummy_direction_index]
+                )
+            band_integrated_saturation[frequency_index, direction_index] = integrant
+    return band_integrated_saturation
+
+
+@numba.jit(**numba_default)
+def st4_cumulative_breaking(
+    variance_density: np.typing.NDArray,
+    saturation: np.typing.NDArray,
+    radian_frequency: np.typing.NDArray,
+    group_velocity: np.typing.NDArray,
+    wave_speed: np.typing.NDArray,
+    radian_direction: np.typing.NDArray,
+    direction_step: np.typing.NDArray,
+    frequency_step: np.typing.NDArray,
+    saturation_threshold: float,
+    cumulative_breaking_constant: float,
+    cumulative_breaking_max_relative_frequency: float,
+    number_of_frequencies: int,
+    number_of_directions: int,
+):
+    &#34;&#34;&#34;
+
+    :param saturation:
+    :param radian_frequency:
+    :param group_velocity:
+    :param wave_speed:
+    :param radian_direction:
+    :param direction_step:
+    :param frequency_step:
+    :param saturation_threshold:
+    :param cumulative_breaking_max_relative_frequency:
+    :param number_of_frequencies:
+    :param number_of_directions:
+    :return:
+    &#34;&#34;&#34;
+
+    jacobian_radian_to_degrees_direction = np.pi / 180
+    jacobian_radian_to_hertz_frequency = 2 * np.pi
+    jacobian_wavenumber_to_radian_frequency = 1 / group_velocity
+
+    jacobian = (
+        jacobian_radian_to_hertz_frequency
+        * jacobian_wavenumber_to_radian_frequency
+        * jacobian_radian_to_degrees_direction
+    )
+
+    cosines = np.cos(radian_direction)
+    sines = np.sin(radian_direction)
+
+    threshold = np.sqrt(saturation) - np.sqrt(saturation_threshold)
+
+    cumulative_breaking = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    if not (cumulative_breaking_constant &gt; 0.0):
+        cumulative_breaking[:, :] = 0.0
+        return cumulative_breaking
+
+    wave_speed_east = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    wave_speed_north = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            wave_speed_east[frequency_index, direction_index] = (
+                cosines[direction_index] * wave_speed[frequency_index]
+            )
+            wave_speed_north[frequency_index, direction_index] = (
+                sines[direction_index] * wave_speed[frequency_index]
+            )
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            # Initialize
+            strength = 0.0
+
+            for dummy_frequency_index in range(0, number_of_frequencies):
+                #
+                if (
+                    radian_frequency[dummy_frequency_index]
+                    &gt; radian_frequency[frequency_index]
+                    * cumulative_breaking_max_relative_frequency
+                ):
+                    break
+
+                for dummy_direction_index in range(0, number_of_directions):
+                    if threshold[dummy_frequency_index, dummy_direction_index] &lt;= 0:
+                        continue
+
+                    integrant = (
+                        threshold[dummy_frequency_index, dummy_direction_index] ** 2
+                        * jacobian[dummy_frequency_index]
+                    )
+
+                    # Calculate the celerity magnitude
+                    delta_wave_speed_east = (
+                        wave_speed_east[dummy_frequency_index, dummy_direction_index]
+                        - wave_speed_east[frequency_index, direction_index]
+                    )
+                    delta_wave_speed_north = (
+                        wave_speed_north[dummy_frequency_index, dummy_direction_index]
+                        - wave_speed_north[frequency_index, direction_index]
+                    )
+                    delta_speed_magnitude = np.sqrt(
+                        delta_wave_speed_east**2 + delta_wave_speed_north**2
+                    )
+
+                    strength += (
+                        frequency_step[dummy_frequency_index]
+                        * direction_step[dummy_direction_index]
+                        * delta_speed_magnitude
+                        * integrant
+                    )
+
+            cumulative_breaking[frequency_index, direction_index] = (
+                -1.44
+                * cumulative_breaking_constant
+                * strength
+                * variance_density[frequency_index, direction_index]
+            )
+    return cumulative_breaking
+
+
+@numba.jit(**numba_default)
+def st4_dissipation_breaking(
+    variance_density: np.typing.NDArray,
+    depth: np.typing.NDArray,
+    spectral_grid,
+    parameters,
+):
+    number_of_directions = variance_density.shape[1]
+    number_of_frequencies = variance_density.shape[0]
+
+    radian_frequency = spectral_grid[&#34;radian_frequency&#34;]
+    radian_direction = spectral_grid[&#34;radian_direction&#34;]
+    frequency_step = spectral_grid[&#34;frequency_step&#34;]
+    direction_step = spectral_grid[&#34;direction_step&#34;]
+
+    saturation_integration_width_degrees = parameters[
+        &#34;saturation_integration_width_degrees&#34;
+    ]
+    saturation_cosine_power = parameters[&#34;saturation_cosine_power&#34;]
+    saturation_threshold = parameters[&#34;saturation_threshold&#34;]
+    cumulative_breaking_constant = parameters[&#34;cumulative_breaking_constant&#34;]
+    cumulative_breaking_max_relative_frequency = parameters[
+        &#34;cumulative_breaking_max_relative_frequency&#34;
+    ]
+    saturation_breaking_constant = parameters[&#34;saturation_breaking_constant&#34;]
+    saturation_breaking_directional_control = parameters[
+        &#34;saturation_breaking_directional_control&#34;
+    ]
+
+    wavenumber = inverse_intrinsic_dispersion_relation(radian_frequency, depth)
+    wave_speed = radian_frequency / wavenumber
+    group_velocity = intrinsic_group_velocity(wavenumber, depth)
+
+    band_integrated_saturation = st4_band_integrated_saturation(
+        variance_density=variance_density,
+        group_velocity=group_velocity,
+        wavenumber=wavenumber,
+        radian_direction=radian_direction,
+        direction_step=direction_step,
+        number_of_frequencies=number_of_frequencies,
+        number_of_directions=number_of_directions,
+        integration_width_degrees=saturation_integration_width_degrees,
+        cosine_power=saturation_cosine_power,
+    )
+
+    cumulative_breaking = st4_cumulative_breaking(
+        variance_density=variance_density,
+        saturation=band_integrated_saturation,
+        radian_frequency=radian_frequency,
+        group_velocity=group_velocity,
+        wave_speed=wave_speed,
+        radian_direction=radian_direction,
+        direction_step=direction_step,
+        frequency_step=frequency_step,
+        saturation_threshold=saturation_threshold,
+        cumulative_breaking_constant=cumulative_breaking_constant,
+        cumulative_breaking_max_relative_frequency=(
+            cumulative_breaking_max_relative_frequency
+        ),
+        number_of_frequencies=number_of_frequencies,
+        number_of_directions=number_of_directions,
+    )
+
+    saturation_breaking = st4_saturation_breaking(
+        variance_density=variance_density,
+        band_integrated_saturation=band_integrated_saturation,
+        radian_frequency=radian_frequency,
+        number_of_frequencies=number_of_frequencies,
+        number_of_directions=number_of_directions,
+        saturation_breaking_constant=saturation_breaking_constant,
+        saturation_breaking_directional_control=saturation_breaking_directional_control,
+        saturation_threshold=saturation_threshold,
+    )
+
+    return cumulative_breaking + saturation_breaking
+
+
+@numba.jit(**numba_default)
+def st4_saturation_breaking(
+    variance_density,
+    band_integrated_saturation,
+    radian_frequency,
+    number_of_frequencies,
+    number_of_directions,
+    saturation_breaking_constant,
+    saturation_breaking_directional_control,
+    saturation_threshold,
+):
+    saturation_breaking = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+
+    if not (saturation_breaking_constant &gt; 0.0):
+        saturation_breaking[:, :] = 0.0
+        return saturation_breaking
+
+    for frequency_index in range(number_of_frequencies):
+        maximum_band_integrated_saturation = np.max(
+            band_integrated_saturation[frequency_index, :]
+        )
+        isotropic_saturation_exceedence = (
+            (maximum_band_integrated_saturation - saturation_threshold)
+            / saturation_threshold
+            * saturation_breaking_directional_control
+        )
+        if isotropic_saturation_exceedence &lt;= 0.0:
+            isotropic_saturation_exceedence = 0.0
+
+        for direction_index in range(number_of_directions):
+            directional_saturation_exceedence = (
+                (
+                    band_integrated_saturation[frequency_index, direction_index]
+                    - saturation_threshold
+                )
+                / saturation_threshold
+                * (1 - saturation_breaking_directional_control)
+            )
+            if directional_saturation_exceedence &lt; 0.0:
+                directional_saturation_exceedence = 0.0
+
+            relative_exceedence_level = (
+                isotropic_saturation_exceedence + directional_saturation_exceedence
+            )
+
+            saturation_breaking[frequency_index, direction_index] = (
+                -saturation_breaking_constant
+                * relative_exceedence_level**2
+                * radian_frequency[frequency_index]
+                * variance_density[frequency_index, direction_index]
+            )
+    return saturation_breaking</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_band_integrated_saturation"><code class="name flex">
+<span>def <span class="ident">st4_band_integrated_saturation</span></span>(<span>variance_density: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], group_velocity: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], wavenumber: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], radian_direction: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], direction_step: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], number_of_frequencies: int, number_of_directions: int, integration_width_degrees: int, cosine_power=2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@numba.jit(**numba_default)
+def st4_band_integrated_saturation(
+    variance_density: np.typing.NDArray,
+    group_velocity: np.typing.NDArray,
+    wavenumber: np.typing.NDArray,
+    radian_direction: np.typing.NDArray,
+    direction_step: np.typing.NDArray,
+    number_of_frequencies: int,
+    number_of_directions: int,
+    integration_width_degrees: int,
+    cosine_power=2,
+):
+    directional_saturation_spec = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    band_integrated_saturation = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    integration_width_radians = integration_width_degrees * np.pi / 180
+
+    for frequency_index in range(number_of_frequencies):
+        directional_saturation_spec[frequency_index, :] = (
+            variance_density[frequency_index, :]
+            * group_velocity[frequency_index]
+            * wavenumber[frequency_index] ** 3
+            / 2
+            / np.pi
+        )
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            integrant = 0.0
+            for dummy_direction_index in range(number_of_directions):
+                mutual_angle = (
+                    radian_direction[dummy_direction_index]
+                    - radian_direction[direction_index]
+                    + np.pi
+                ) % (2 * np.pi) - np.pi
+                if np.abs(mutual_angle) &gt; integration_width_radians:
+                    continue
+
+                integrant += (
+                    directional_saturation_spec[frequency_index, dummy_direction_index]
+                    * np.cos(mutual_angle) ** cosine_power
+                    * direction_step[dummy_direction_index]
+                )
+            band_integrated_saturation[frequency_index, direction_index] = integrant
+    return band_integrated_saturation</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_cumulative_breaking"><code class="name flex">
+<span>def <span class="ident">st4_cumulative_breaking</span></span>(<span>variance_density: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], saturation: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], radian_frequency: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], group_velocity: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], wave_speed: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], radian_direction: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], direction_step: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], frequency_step: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], saturation_threshold: float, cumulative_breaking_constant: float, cumulative_breaking_max_relative_frequency: float, number_of_frequencies: int, number_of_directions: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:param saturation:
+:param radian_frequency:
+:param group_velocity:
+:param wave_speed:
+:param radian_direction:
+:param direction_step:
+:param frequency_step:
+:param saturation_threshold:
+:param cumulative_breaking_max_relative_frequency:
+:param number_of_frequencies:
+:param number_of_directions:
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@numba.jit(**numba_default)
+def st4_cumulative_breaking(
+    variance_density: np.typing.NDArray,
+    saturation: np.typing.NDArray,
+    radian_frequency: np.typing.NDArray,
+    group_velocity: np.typing.NDArray,
+    wave_speed: np.typing.NDArray,
+    radian_direction: np.typing.NDArray,
+    direction_step: np.typing.NDArray,
+    frequency_step: np.typing.NDArray,
+    saturation_threshold: float,
+    cumulative_breaking_constant: float,
+    cumulative_breaking_max_relative_frequency: float,
+    number_of_frequencies: int,
+    number_of_directions: int,
+):
+    &#34;&#34;&#34;
+
+    :param saturation:
+    :param radian_frequency:
+    :param group_velocity:
+    :param wave_speed:
+    :param radian_direction:
+    :param direction_step:
+    :param frequency_step:
+    :param saturation_threshold:
+    :param cumulative_breaking_max_relative_frequency:
+    :param number_of_frequencies:
+    :param number_of_directions:
+    :return:
+    &#34;&#34;&#34;
+
+    jacobian_radian_to_degrees_direction = np.pi / 180
+    jacobian_radian_to_hertz_frequency = 2 * np.pi
+    jacobian_wavenumber_to_radian_frequency = 1 / group_velocity
+
+    jacobian = (
+        jacobian_radian_to_hertz_frequency
+        * jacobian_wavenumber_to_radian_frequency
+        * jacobian_radian_to_degrees_direction
+    )
+
+    cosines = np.cos(radian_direction)
+    sines = np.sin(radian_direction)
+
+    threshold = np.sqrt(saturation) - np.sqrt(saturation_threshold)
+
+    cumulative_breaking = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    if not (cumulative_breaking_constant &gt; 0.0):
+        cumulative_breaking[:, :] = 0.0
+        return cumulative_breaking
+
+    wave_speed_east = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+    wave_speed_north = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            wave_speed_east[frequency_index, direction_index] = (
+                cosines[direction_index] * wave_speed[frequency_index]
+            )
+            wave_speed_north[frequency_index, direction_index] = (
+                sines[direction_index] * wave_speed[frequency_index]
+            )
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            # Initialize
+            strength = 0.0
+
+            for dummy_frequency_index in range(0, number_of_frequencies):
+                #
+                if (
+                    radian_frequency[dummy_frequency_index]
+                    &gt; radian_frequency[frequency_index]
+                    * cumulative_breaking_max_relative_frequency
+                ):
+                    break
+
+                for dummy_direction_index in range(0, number_of_directions):
+                    if threshold[dummy_frequency_index, dummy_direction_index] &lt;= 0:
+                        continue
+
+                    integrant = (
+                        threshold[dummy_frequency_index, dummy_direction_index] ** 2
+                        * jacobian[dummy_frequency_index]
+                    )
+
+                    # Calculate the celerity magnitude
+                    delta_wave_speed_east = (
+                        wave_speed_east[dummy_frequency_index, dummy_direction_index]
+                        - wave_speed_east[frequency_index, direction_index]
+                    )
+                    delta_wave_speed_north = (
+                        wave_speed_north[dummy_frequency_index, dummy_direction_index]
+                        - wave_speed_north[frequency_index, direction_index]
+                    )
+                    delta_speed_magnitude = np.sqrt(
+                        delta_wave_speed_east**2 + delta_wave_speed_north**2
+                    )
+
+                    strength += (
+                        frequency_step[dummy_frequency_index]
+                        * direction_step[dummy_direction_index]
+                        * delta_speed_magnitude
+                        * integrant
+                    )
+
+            cumulative_breaking[frequency_index, direction_index] = (
+                -1.44
+                * cumulative_breaking_constant
+                * strength
+                * variance_density[frequency_index, direction_index]
+            )
+    return cumulative_breaking</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_dissipation_breaking"><code class="name flex">
+<span>def <span class="ident">st4_dissipation_breaking</span></span>(<span>variance_density: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], depth: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], spectral_grid, parameters)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@numba.jit(**numba_default)
+def st4_dissipation_breaking(
+    variance_density: np.typing.NDArray,
+    depth: np.typing.NDArray,
+    spectral_grid,
+    parameters,
+):
+    number_of_directions = variance_density.shape[1]
+    number_of_frequencies = variance_density.shape[0]
+
+    radian_frequency = spectral_grid[&#34;radian_frequency&#34;]
+    radian_direction = spectral_grid[&#34;radian_direction&#34;]
+    frequency_step = spectral_grid[&#34;frequency_step&#34;]
+    direction_step = spectral_grid[&#34;direction_step&#34;]
+
+    saturation_integration_width_degrees = parameters[
+        &#34;saturation_integration_width_degrees&#34;
+    ]
+    saturation_cosine_power = parameters[&#34;saturation_cosine_power&#34;]
+    saturation_threshold = parameters[&#34;saturation_threshold&#34;]
+    cumulative_breaking_constant = parameters[&#34;cumulative_breaking_constant&#34;]
+    cumulative_breaking_max_relative_frequency = parameters[
+        &#34;cumulative_breaking_max_relative_frequency&#34;
+    ]
+    saturation_breaking_constant = parameters[&#34;saturation_breaking_constant&#34;]
+    saturation_breaking_directional_control = parameters[
+        &#34;saturation_breaking_directional_control&#34;
+    ]
+
+    wavenumber = inverse_intrinsic_dispersion_relation(radian_frequency, depth)
+    wave_speed = radian_frequency / wavenumber
+    group_velocity = intrinsic_group_velocity(wavenumber, depth)
+
+    band_integrated_saturation = st4_band_integrated_saturation(
+        variance_density=variance_density,
+        group_velocity=group_velocity,
+        wavenumber=wavenumber,
+        radian_direction=radian_direction,
+        direction_step=direction_step,
+        number_of_frequencies=number_of_frequencies,
+        number_of_directions=number_of_directions,
+        integration_width_degrees=saturation_integration_width_degrees,
+        cosine_power=saturation_cosine_power,
+    )
+
+    cumulative_breaking = st4_cumulative_breaking(
+        variance_density=variance_density,
+        saturation=band_integrated_saturation,
+        radian_frequency=radian_frequency,
+        group_velocity=group_velocity,
+        wave_speed=wave_speed,
+        radian_direction=radian_direction,
+        direction_step=direction_step,
+        frequency_step=frequency_step,
+        saturation_threshold=saturation_threshold,
+        cumulative_breaking_constant=cumulative_breaking_constant,
+        cumulative_breaking_max_relative_frequency=(
+            cumulative_breaking_max_relative_frequency
+        ),
+        number_of_frequencies=number_of_frequencies,
+        number_of_directions=number_of_directions,
+    )
+
+    saturation_breaking = st4_saturation_breaking(
+        variance_density=variance_density,
+        band_integrated_saturation=band_integrated_saturation,
+        radian_frequency=radian_frequency,
+        number_of_frequencies=number_of_frequencies,
+        number_of_directions=number_of_directions,
+        saturation_breaking_constant=saturation_breaking_constant,
+        saturation_breaking_directional_control=saturation_breaking_directional_control,
+        saturation_threshold=saturation_threshold,
+    )
+
+    return cumulative_breaking + saturation_breaking</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_saturation_breaking"><code class="name flex">
+<span>def <span class="ident">st4_saturation_breaking</span></span>(<span>variance_density, band_integrated_saturation, radian_frequency, number_of_frequencies, number_of_directions, saturation_breaking_constant, saturation_breaking_directional_control, saturation_threshold)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@numba.jit(**numba_default)
+def st4_saturation_breaking(
+    variance_density,
+    band_integrated_saturation,
+    radian_frequency,
+    number_of_frequencies,
+    number_of_directions,
+    saturation_breaking_constant,
+    saturation_breaking_directional_control,
+    saturation_threshold,
+):
+    saturation_breaking = np.empty(
+        (number_of_frequencies, number_of_directions), dtype=&#34;float64&#34;
+    )
+
+    if not (saturation_breaking_constant &gt; 0.0):
+        saturation_breaking[:, :] = 0.0
+        return saturation_breaking
+
+    for frequency_index in range(number_of_frequencies):
+        maximum_band_integrated_saturation = np.max(
+            band_integrated_saturation[frequency_index, :]
+        )
+        isotropic_saturation_exceedence = (
+            (maximum_band_integrated_saturation - saturation_threshold)
+            / saturation_threshold
+            * saturation_breaking_directional_control
+        )
+        if isotropic_saturation_exceedence &lt;= 0.0:
+            isotropic_saturation_exceedence = 0.0
+
+        for direction_index in range(number_of_directions):
+            directional_saturation_exceedence = (
+                (
+                    band_integrated_saturation[frequency_index, direction_index]
+                    - saturation_threshold
+                )
+                / saturation_threshold
+                * (1 - saturation_breaking_directional_control)
+            )
+            if directional_saturation_exceedence &lt; 0.0:
+                directional_saturation_exceedence = 0.0
+
+            relative_exceedence_level = (
+                isotropic_saturation_exceedence + directional_saturation_exceedence
+            )
+
+            saturation_breaking[frequency_index, direction_index] = (
+                -saturation_breaking_constant
+                * relative_exceedence_level**2
+                * radian_frequency[frequency_index]
+                * variance_density[frequency_index, direction_index]
+            )
+    return saturation_breaking</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking"><code class="flex name class">
+<span>class <span class="ident">ST4WaveBreaking</span></span>
+<span>(</span><span>parameters: Optional[<a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters">ST4WaveBreakingParameters</a>] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ST4WaveBreaking(Dissipation):
+    name = &#34;st4 dissipation&#34;
+
+    def __init__(self, parameters: Optional[ST4WaveBreakingParameters] = None):
+        super(ST4WaveBreaking, self).__init__(parameters)
+        self._dissipation_function = st4_dissipation_breaking
+
+    @staticmethod
+    def default_parameters() -&gt; ST4WaveBreakingParameters:  # type: ignore
+        return ST4WaveBreakingParameters(
+            saturation_breaking_constant=2.2e-05,
+            saturation_breaking_directional_control=0,
+            saturation_cosine_power=2,
+            saturation_integration_width_degrees=80,
+            saturation_threshold=0.0009,
+            cumulative_breaking_constant=0.4,
+            cumulative_breaking_max_relative_frequency=0.5,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavephysics.balance.dissipation.Dissipation" href="dissipation.html#ocean_science_utilities.wavephysics.balance.dissipation.Dissipation">Dissipation</a></li>
+<li><a title="ocean_science_utilities.wavephysics.balance.source_term.SourceTerm" href="source_term.html#ocean_science_utilities.wavephysics.balance.source_term.SourceTerm">SourceTerm</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking.default_parameters"><code class="name flex">
+<span>def <span class="ident">default_parameters</span></span>(<span>) ‑> <a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters">ST4WaveBreakingParameters</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def default_parameters() -&gt; ST4WaveBreakingParameters:  # type: ignore
+    return ST4WaveBreakingParameters(
+        saturation_breaking_constant=2.2e-05,
+        saturation_breaking_directional_control=0,
+        saturation_cosine_power=2,
+        saturation_integration_width_degrees=80,
+        saturation_threshold=0.0009,
+        cumulative_breaking_constant=0.4,
+        cumulative_breaking_max_relative_frequency=0.5,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters"><code class="flex name class">
+<span>class <span class="ident">ST4WaveBreakingParameters</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ST4WaveBreakingParameters(TypedDict):
+    saturation_breaking_constant: float
+    saturation_breaking_directional_control: float
+    saturation_cosine_power: float
+    saturation_integration_width_degrees: float
+    saturation_threshold: float
+    cumulative_breaking_constant: float
+    cumulative_breaking_max_relative_frequency: float</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.cumulative_breaking_constant"><code class="name">var <span class="ident">cumulative_breaking_constant</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.cumulative_breaking_max_relative_frequency"><code class="name">var <span class="ident">cumulative_breaking_max_relative_frequency</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_breaking_constant"><code class="name">var <span class="ident">saturation_breaking_constant</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_breaking_directional_control"><code class="name">var <span class="ident">saturation_breaking_directional_control</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_cosine_power"><code class="name">var <span class="ident">saturation_cosine_power</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_integration_width_degrees"><code class="name">var <span class="ident">saturation_integration_width_degrees</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_threshold"><code class="name">var <span class="ident">saturation_threshold</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ocean_science_utilities.wavephysics.balance" href="index.html">ocean_science_utilities.wavephysics.balance</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_band_integrated_saturation" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_band_integrated_saturation">st4_band_integrated_saturation</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_cumulative_breaking" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_cumulative_breaking">st4_cumulative_breaking</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_dissipation_breaking" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_dissipation_breaking">st4_dissipation_breaking</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_saturation_breaking" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.st4_saturation_breaking">st4_saturation_breaking</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking">ST4WaveBreaking</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking.default_parameters" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking.default_parameters">default_parameters</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking.name" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreaking.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters">ST4WaveBreakingParameters</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.cumulative_breaking_constant" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.cumulative_breaking_constant">cumulative_breaking_constant</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.cumulative_breaking_max_relative_frequency" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.cumulative_breaking_max_relative_frequency">cumulative_breaking_max_relative_frequency</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_breaking_constant" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_breaking_constant">saturation_breaking_constant</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_breaking_directional_control" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_breaking_directional_control">saturation_breaking_directional_control</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_cosine_power" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_cosine_power">saturation_cosine_power</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_integration_width_degrees" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_integration_width_degrees">saturation_integration_width_degrees</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_threshold" href="#ocean_science_utilities.wavephysics.balance.st4_wave_breaking.ST4WaveBreakingParameters.saturation_threshold">saturation_threshold</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>ocean_science_utilities.wavespectra.parametric API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ocean_science_utilities.wavespectra.parametric</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import scipy   # type: ignore
+
+from abc import ABC, abstractmethod
+from datetime import datetime
+from typing import Literal, Optional
+
+from ocean_science_utilities.wavespectra.spectrum import (
+    create_2d_spectrum,
+    FrequencyDirectionSpectrum,
+    FrequencySpectrum,
+)
+
+
+PHILLIPS_CONSTANT = 0.0081
+GRAVITATIONAL_CONSTANT = 9.81
+
+FrequencyShapeOptions = Literal[&#34;pm&#34;, &#34;jonswap&#34;, &#34;phillips&#34;, &#34;gaussian&#34;]
+DirectionalShapeOptions = Literal[&#34;raised_cosine&#34;]
+
+
+class FrequencyShape(ABC):
+    @abstractmethod
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        pass
+
+
+class DirectionalShape(ABC):
+    @abstractmethod
+    def values(self, direction_degrees: np.ndarray) -&gt; np.ndarray:
+        pass
+
+
+class RaisedCosine(DirectionalShape):
+    def __init__(self, mean_direction_degrees: float = 0, width_degrees: float = 28.64):
+        self._power = self.power(width_degrees)
+        self._mean_direction_degrees = mean_direction_degrees
+        self._normalization = (
+            np.pi
+            / 180
+            * scipy.special.gamma(self._power / 2 + 1)
+            / (scipy.special.gamma(self._power / 2 + 1 / 2) * np.sqrt(np.pi))
+        )
+
+    @staticmethod
+    def power(width_degrees: float) -&gt; float:
+        return 4 / ((np.pi * width_degrees / 90) ** 2) - 2
+
+    def values(self, direction_degrees: np.ndarray) -&gt; np.ndarray:
+        angle = (direction_degrees - self._mean_direction_degrees + 180) % 360 - 180
+        with np.errstate(invalid=&#34;ignore&#34;, divide=&#34;ignore&#34;):
+            return np.where(
+                np.abs(angle) &lt;= 90,
+                self._normalization * np.cos(angle * np.pi / 180) ** self._power,
+                0,
+            )
+
+
+class GaussianSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+        self.m0 = m0
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self.standard_deviation_hertz = kwargs.get(
+            &#34;standard_deviation_hertz&#34;, peak_frequency_hertz / 10
+        )
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        return (
+            self.m0
+            / self.standard_deviation_hertz
+            / np.sqrt(2 * np.pi)
+            * np.exp(
+                -0.5
+                * (frequency_hertz - self._peak_frequency_hertz) ** 2
+                / self.standard_deviation_hertz**2
+            )
+        )
+
+
+class PhillipsSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self._g = kwargs.get(&#34;g&#34;, GRAVITATIONAL_CONSTANT)
+        self._alpha = self.alpha(m0)
+
+    def alpha(self, m0: float) -&gt; float:
+        return m0 * 8 * (np.pi) ** 4 * self._peak_frequency_hertz**4 / self._g**2
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        &#34;&#34;&#34;
+        Phillips variance-density spectrum with frequency in Hz as
+        dependent variable.
+
+        :return:
+        &#34;&#34;&#34;
+        values = np.zeros(len(frequency_hertz))
+        msk = frequency_hertz &gt; 0
+        values[msk] = (
+            self._alpha
+            * self._g**2
+            * (2 * np.pi) ** -4
+            * frequency_hertz[msk] ** -5
+        )
+        return values
+
+
+class PiersonMoskowitzSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self._g = kwargs.get(&#34;g&#34;, GRAVITATIONAL_CONSTANT)
+        self._alpha = self.alpha(m0)
+
+    def alpha(self, m0: float) -&gt; float:
+        return m0 * 5 * (2 * np.pi * self._peak_frequency_hertz) ** 4 / self._g**2
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        &#34;&#34;&#34;
+        Pierson Moskowitz variance-density spectrum with frequency in Hz as
+        dependant variable. See e.g. Holthuijsen &#34;Waves in Oceanic Water.&#34;
+
+        :param frequency: frequency in Hz (scalar or array)
+        :param peak_frequency: peak frequency in Hz
+        :param alpha: Phillips constant (default 0.0081)
+        :param g: gravitational acceleration (default 9.81)
+        :return:
+        &#34;&#34;&#34;
+        values = np.zeros(len(frequency_hertz))
+        msk = frequency_hertz &gt; 0
+        values[msk] = (
+            self._alpha
+            * self._g**2
+            * (2 * np.pi) ** -4
+            * frequency_hertz[msk] ** -5
+            * np.exp(
+                -5 / 4 * (self._peak_frequency_hertz / frequency_hertz[msk]) ** 4
+            )
+        )
+        return values
+
+
+class JonswapSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self._g = kwargs.get(&#34;g&#34;, GRAVITATIONAL_CONSTANT)
+        self._sigma_a = kwargs.get(&#34;sigma_a&#34;, 0.07)
+        self._sigma_b = kwargs.get(&#34;sigma_b&#34;, 0.09)
+        self.gamma = kwargs.get(&#34;gamma&#34;, 3.3)
+        self._alpha = self.alpha(m0)
+
+    def alpha(self, m0: float) -&gt; float:
+        # Approximation by Yamaguchi (1984), &#34;Approximate expressions for integral
+        # properties of the JONSWAP spectrum&#34; Proc. Japanese Society of Civil Engineers,
+        # 345/II-1, 149–152 [in Japanese]. Taken from Holthuijsen
+        # &#34;waves in oceanic and coastal waters&#34;. Not valid if sigma_a or sigma_b
+        # are changed from defaults. Otherwise accurate to within 0.25%
+        #
+        return (
+            m0
+            * (2 * np.pi * self._peak_frequency_hertz) ** 4
+            / self._g**2
+            / (0.06533 * self.gamma**0.8015 + 0.13467)
+        )
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        &#34;&#34;&#34;
+        Jonswap variance-density spectrum with frequency in Hz as
+        dependant variable. See e.g. Holthuijsen &#34;Waves in Oceanic Water.&#34;
+
+        :param frequency: frequency in Hz (scalar or array)
+        :param peak_frequency: peak frequency in Hz
+        :param alpha: Phillips constant (default 0.0081)
+        :param g: gravitational acceleration (default 9.81)
+        :return:
+        &#34;&#34;&#34;
+        values = np.zeros(len(frequency_hertz))
+        msk = frequency_hertz &gt; 0
+
+        sigma = np.where(
+            frequency_hertz &lt;= self._peak_frequency_hertz, self._sigma_a, self._sigma_b
+        )
+        peak_enhancement = self.gamma ** np.exp(
+            -1 / 2 * ((frequency_hertz / self._peak_frequency_hertz - 1) / sigma) ** 2
+        )
+
+        values[msk] = (
+            self._alpha
+            * self._g**2
+            * (2 * np.pi) ** -4
+            * frequency_hertz[msk] ** -5
+            * np.exp(
+                -5 / 4 * (self._peak_frequency_hertz / frequency_hertz[msk]) ** 4
+            )
+            * peak_enhancement[msk]
+        )
+        return values
+
+
+def create_frequency_shape(
+    shape: FrequencyShapeOptions, peak_frequency_hertz: float, m0: float = 1, **kwargs
+) -&gt; FrequencyShape:
+    if shape == &#34;pm&#34;:
+        return PiersonMoskowitzSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+    elif shape == &#34;jonswap&#34;:
+        return JonswapSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+    elif shape == &#34;phillips&#34;:
+        return PhillipsSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+    elif shape == &#34;gaussian&#34;:
+        return GaussianSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+
+    else:
+        raise ValueError(f&#34;Unknown frequency shape: {shape}&#34;)
+
+
+def create_directional_shape(
+    shape: DirectionalShapeOptions,
+    mean_direction_degrees: float = 0,
+    width_degrees: float = 30,
+) -&gt; DirectionalShape:
+    if shape == &#34;raised_cosine&#34;:
+        return RaisedCosine(
+            mean_direction_degrees=mean_direction_degrees, width_degrees=width_degrees
+        )
+    else:
+        raise ValueError(f&#34;Unknown frequency shape: {shape}&#34;)
+
+
+def create_parametric_frequency_direction_spectrum(
+    frequency_hertz: np.ndarray,
+    peak_frequency_hertz: float,
+    significant_wave_height: float,
+    frequency_shape: FrequencyShapeOptions = &#34;jonswap&#34;,
+    direction_degrees: Optional[np.ndarray] = None,
+    direction_shape: DirectionalShapeOptions = &#34;raised_cosine&#34;,
+    mean_direction_degrees: float = 0.0,
+    width_degrees: float = 30,
+    depth: float = np.inf,
+    time: Optional[datetime] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+    **kwargs,
+) -&gt; FrequencyDirectionSpectrum:
+    &#34;&#34;&#34;
+    Create a parametrized directional frequency spectrum according to a
+    given frequency (Jonswap, PM) or directional (raised_cosine) distribution.
+
+    :param frequency_hertz: Frequencies to resolve
+    :param peak_frequency_hertz:  Desired peak frequency of the spectrum
+    :param significant_wave_height: Significant wave height of the spectrum
+    :param frequency_shape: The frequency shape, currently supported are:
+        frequency_shape=&#34;pm&#34;: for pierson_moskowitz
+        frequency_shape=&#34;jonswap&#34; [default]: for Jonswap
+    :param direction_degrees: Directions to resolve the spectrum. If None [default] 36
+        directions spanning the circle are used [ 0 , 360 )
+    :param direction_shape: shape of the directional distribution.
+        Currently only a raised cosine distribution is supported.
+    :param mean_direction_degrees: mean direction of the waves.
+        0 degrees (due east) is the default.
+    :param width_degrees: width of the spectrum (according to Kuik).
+        30 degrees is the default.
+    :param depth: mean depth at the location of the spectrum (optional)
+         Does not affect returned spectral values in any way, but is used as the
+         depth in the returned spectral object
+         (and may affect e.g. wavenumber calculations.)
+    :param time: timestamp of the spectrum. Optional.
+        Merely an annotation on the returned object.
+    :param latitude: latitude of the spectrum. Optional.
+        Merely an annotation on the returned object.
+    :param longitude: latitude of the spectrum. Optional.
+        Merely an annotation on the returned object.
+
+    :return: FrequencyDirectionSpectrum object.
+    &#34;&#34;&#34;
+
+    if direction_degrees is None:
+        direction_degrees = np.linspace(0, 360, 36, endpoint=False)
+
+    D = create_directional_shape(
+        shape=direction_shape,
+        mean_direction_degrees=mean_direction_degrees,
+        width_degrees=width_degrees,
+    ).values(direction_degrees)
+
+    m0 = (significant_wave_height / 4) ** 2
+    E = create_frequency_shape(
+        shape=frequency_shape,
+        peak_frequency_hertz=peak_frequency_hertz,
+        m0=m0,
+        **kwargs,
+    ).values(frequency_hertz)
+
+    return create_2d_spectrum(
+        frequency=frequency_hertz,
+        direction=direction_degrees,
+        variance_density=E[:, None] * D[None, :],
+        time=time,
+        latitude=latitude,
+        longitude=longitude,
+        depth=depth,
+        dims=(&#34;frequency&#34;, &#34;direction&#34;),
+    )
+
+
+def create_parametric_frequency_spectrum(
+    frequency_hertz: np.ndarray,
+    peak_frequency_hertz: float,
+    significant_wave_height: float,
+    frequency_shape: FrequencyShapeOptions = &#34;jonswap&#34;,
+    depth: float = np.inf,
+    time: Optional[datetime] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+    **kwargs,
+) -&gt; FrequencySpectrum:
+
+    # We create a 1d spectrum from an integrated 2d spectrum with assumed raised
+    # cosine shape. This allows us to add the a1/b1 parameters easily.
+    spec2d = create_parametric_frequency_direction_spectrum(
+        frequency_hertz,
+        peak_frequency_hertz,
+        significant_wave_height,
+        frequency_shape,
+        depth=depth,
+        time=time,
+        latitude=latitude,
+        longitude=longitude,
+        **kwargs,
+    )
+    return spec2d.as_frequency_spectrum()
+
+
+def create_parametric_spectrum(
+    frequency_hertz: np.ndarray,
+    frequency_shape: FrequencyShapeOptions,
+    peak_frequency_hertz: float,
+    significant_wave_height: float,
+    direction_degrees: Optional[np.ndarray] = None,
+    direction_shape: DirectionalShapeOptions = &#34;raised_cosine&#34;,
+    mean_direction_degrees: float = 0.0,
+    width_degrees: float = 30.0,
+    depth: float = np.inf,
+    time: Optional[datetime] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+) -&gt; FrequencyDirectionSpectrum:
+    &#34;&#34;&#34;
+    Deprecated - use create_parametric_frequency_direction_spectrum instead
+    &#34;&#34;&#34;
+    return create_parametric_frequency_direction_spectrum(
+        frequency_hertz,
+        peak_frequency_hertz,
+        significant_wave_height,
+        frequency_shape,
+        direction_degrees,
+        direction_shape,
+        mean_direction_degrees,
+        width_degrees,
+        depth,
+        time,
+        latitude,
+        longitude,
+    )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.create_directional_shape"><code class="name flex">
+<span>def <span class="ident">create_directional_shape</span></span>(<span>shape: Literal['raised_cosine'], mean_direction_degrees: float = 0, width_degrees: float = 30) ‑> <a title="ocean_science_utilities.wavespectra.parametric.DirectionalShape" href="#ocean_science_utilities.wavespectra.parametric.DirectionalShape">DirectionalShape</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_directional_shape(
+    shape: DirectionalShapeOptions,
+    mean_direction_degrees: float = 0,
+    width_degrees: float = 30,
+) -&gt; DirectionalShape:
+    if shape == &#34;raised_cosine&#34;:
+        return RaisedCosine(
+            mean_direction_degrees=mean_direction_degrees, width_degrees=width_degrees
+        )
+    else:
+        raise ValueError(f&#34;Unknown frequency shape: {shape}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.create_frequency_shape"><code class="name flex">
+<span>def <span class="ident">create_frequency_shape</span></span>(<span>shape: Literal['pm', 'jonswap', 'phillips', 'gaussian'], peak_frequency_hertz: float, m0: float = 1, **kwargs) ‑> <a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape">FrequencyShape</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_frequency_shape(
+    shape: FrequencyShapeOptions, peak_frequency_hertz: float, m0: float = 1, **kwargs
+) -&gt; FrequencyShape:
+    if shape == &#34;pm&#34;:
+        return PiersonMoskowitzSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+    elif shape == &#34;jonswap&#34;:
+        return JonswapSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+    elif shape == &#34;phillips&#34;:
+        return PhillipsSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+    elif shape == &#34;gaussian&#34;:
+        return GaussianSpectrum(
+            peak_frequency_hertz=peak_frequency_hertz, m0=m0, **kwargs
+        )
+
+    else:
+        raise ValueError(f&#34;Unknown frequency shape: {shape}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.create_parametric_frequency_direction_spectrum"><code class="name flex">
+<span>def <span class="ident">create_parametric_frequency_direction_spectrum</span></span>(<span>frequency_hertz: numpy.ndarray, peak_frequency_hertz: float, significant_wave_height: float, frequency_shape: Literal['pm', 'jonswap', 'phillips', 'gaussian'] = 'jonswap', direction_degrees: Optional[numpy.ndarray] = None, direction_shape: Literal['raised_cosine'] = 'raised_cosine', mean_direction_degrees: float = 0.0, width_degrees: float = 30, depth: float = inf, time: Optional[datetime.datetime] = None, latitude: Optional[float] = None, longitude: Optional[float] = None, **kwargs) ‑> <a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a parametrized directional frequency spectrum according to a
+given frequency (Jonswap, PM) or directional (raised_cosine) distribution.</p>
+<p>:param frequency_hertz: Frequencies to resolve
+:param peak_frequency_hertz:
+Desired peak frequency of the spectrum
+:param significant_wave_height: Significant wave height of the spectrum
+:param frequency_shape: The frequency shape, currently supported are:
+frequency_shape="pm": for pierson_moskowitz
+frequency_shape="jonswap" [default]: for Jonswap
+:param direction_degrees: Directions to resolve the spectrum. If None [default] 36
+directions spanning the circle are used [ 0 , 360 )
+:param direction_shape: shape of the directional distribution.
+Currently only a raised cosine distribution is supported.
+:param mean_direction_degrees: mean direction of the waves.
+0 degrees (due east) is the default.
+:param width_degrees: width of the spectrum (according to Kuik).
+30 degrees is the default.
+:param depth: mean depth at the location of the spectrum (optional)
+Does not affect returned spectral values in any way, but is used as the
+depth in the returned spectral object
+(and may affect e.g. wavenumber calculations.)
+:param time: timestamp of the spectrum. Optional.
+Merely an annotation on the returned object.
+:param latitude: latitude of the spectrum. Optional.
+Merely an annotation on the returned object.
+:param longitude: latitude of the spectrum. Optional.
+Merely an annotation on the returned object.</p>
+<p>:return: FrequencyDirectionSpectrum object.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_parametric_frequency_direction_spectrum(
+    frequency_hertz: np.ndarray,
+    peak_frequency_hertz: float,
+    significant_wave_height: float,
+    frequency_shape: FrequencyShapeOptions = &#34;jonswap&#34;,
+    direction_degrees: Optional[np.ndarray] = None,
+    direction_shape: DirectionalShapeOptions = &#34;raised_cosine&#34;,
+    mean_direction_degrees: float = 0.0,
+    width_degrees: float = 30,
+    depth: float = np.inf,
+    time: Optional[datetime] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+    **kwargs,
+) -&gt; FrequencyDirectionSpectrum:
+    &#34;&#34;&#34;
+    Create a parametrized directional frequency spectrum according to a
+    given frequency (Jonswap, PM) or directional (raised_cosine) distribution.
+
+    :param frequency_hertz: Frequencies to resolve
+    :param peak_frequency_hertz:  Desired peak frequency of the spectrum
+    :param significant_wave_height: Significant wave height of the spectrum
+    :param frequency_shape: The frequency shape, currently supported are:
+        frequency_shape=&#34;pm&#34;: for pierson_moskowitz
+        frequency_shape=&#34;jonswap&#34; [default]: for Jonswap
+    :param direction_degrees: Directions to resolve the spectrum. If None [default] 36
+        directions spanning the circle are used [ 0 , 360 )
+    :param direction_shape: shape of the directional distribution.
+        Currently only a raised cosine distribution is supported.
+    :param mean_direction_degrees: mean direction of the waves.
+        0 degrees (due east) is the default.
+    :param width_degrees: width of the spectrum (according to Kuik).
+        30 degrees is the default.
+    :param depth: mean depth at the location of the spectrum (optional)
+         Does not affect returned spectral values in any way, but is used as the
+         depth in the returned spectral object
+         (and may affect e.g. wavenumber calculations.)
+    :param time: timestamp of the spectrum. Optional.
+        Merely an annotation on the returned object.
+    :param latitude: latitude of the spectrum. Optional.
+        Merely an annotation on the returned object.
+    :param longitude: latitude of the spectrum. Optional.
+        Merely an annotation on the returned object.
+
+    :return: FrequencyDirectionSpectrum object.
+    &#34;&#34;&#34;
+
+    if direction_degrees is None:
+        direction_degrees = np.linspace(0, 360, 36, endpoint=False)
+
+    D = create_directional_shape(
+        shape=direction_shape,
+        mean_direction_degrees=mean_direction_degrees,
+        width_degrees=width_degrees,
+    ).values(direction_degrees)
+
+    m0 = (significant_wave_height / 4) ** 2
+    E = create_frequency_shape(
+        shape=frequency_shape,
+        peak_frequency_hertz=peak_frequency_hertz,
+        m0=m0,
+        **kwargs,
+    ).values(frequency_hertz)
+
+    return create_2d_spectrum(
+        frequency=frequency_hertz,
+        direction=direction_degrees,
+        variance_density=E[:, None] * D[None, :],
+        time=time,
+        latitude=latitude,
+        longitude=longitude,
+        depth=depth,
+        dims=(&#34;frequency&#34;, &#34;direction&#34;),
+    )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.create_parametric_frequency_spectrum"><code class="name flex">
+<span>def <span class="ident">create_parametric_frequency_spectrum</span></span>(<span>frequency_hertz: numpy.ndarray, peak_frequency_hertz: float, significant_wave_height: float, frequency_shape: Literal['pm', 'jonswap', 'phillips', 'gaussian'] = 'jonswap', depth: float = inf, time: Optional[datetime.datetime] = None, latitude: Optional[float] = None, longitude: Optional[float] = None, **kwargs) ‑> <a title="ocean_science_utilities.wavespectra.spectrum.FrequencySpectrum" href="spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencySpectrum">FrequencySpectrum</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_parametric_frequency_spectrum(
+    frequency_hertz: np.ndarray,
+    peak_frequency_hertz: float,
+    significant_wave_height: float,
+    frequency_shape: FrequencyShapeOptions = &#34;jonswap&#34;,
+    depth: float = np.inf,
+    time: Optional[datetime] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+    **kwargs,
+) -&gt; FrequencySpectrum:
+
+    # We create a 1d spectrum from an integrated 2d spectrum with assumed raised
+    # cosine shape. This allows us to add the a1/b1 parameters easily.
+    spec2d = create_parametric_frequency_direction_spectrum(
+        frequency_hertz,
+        peak_frequency_hertz,
+        significant_wave_height,
+        frequency_shape,
+        depth=depth,
+        time=time,
+        latitude=latitude,
+        longitude=longitude,
+        **kwargs,
+    )
+    return spec2d.as_frequency_spectrum()</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.create_parametric_spectrum"><code class="name flex">
+<span>def <span class="ident">create_parametric_spectrum</span></span>(<span>frequency_hertz: numpy.ndarray, frequency_shape: Literal['pm', 'jonswap', 'phillips', 'gaussian'], peak_frequency_hertz: float, significant_wave_height: float, direction_degrees: Optional[numpy.ndarray] = None, direction_shape: Literal['raised_cosine'] = 'raised_cosine', mean_direction_degrees: float = 0.0, width_degrees: float = 30.0, depth: float = inf, time: Optional[datetime.datetime] = None, latitude: Optional[float] = None, longitude: Optional[float] = None) ‑> <a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Deprecated - use create_parametric_frequency_direction_spectrum instead</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_parametric_spectrum(
+    frequency_hertz: np.ndarray,
+    frequency_shape: FrequencyShapeOptions,
+    peak_frequency_hertz: float,
+    significant_wave_height: float,
+    direction_degrees: Optional[np.ndarray] = None,
+    direction_shape: DirectionalShapeOptions = &#34;raised_cosine&#34;,
+    mean_direction_degrees: float = 0.0,
+    width_degrees: float = 30.0,
+    depth: float = np.inf,
+    time: Optional[datetime] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+) -&gt; FrequencyDirectionSpectrum:
+    &#34;&#34;&#34;
+    Deprecated - use create_parametric_frequency_direction_spectrum instead
+    &#34;&#34;&#34;
+    return create_parametric_frequency_direction_spectrum(
+        frequency_hertz,
+        peak_frequency_hertz,
+        significant_wave_height,
+        frequency_shape,
+        direction_degrees,
+        direction_shape,
+        mean_direction_degrees,
+        width_degrees,
+        depth,
+        time,
+        latitude,
+        longitude,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.DirectionalShape"><code class="flex name class">
+<span>class <span class="ident">DirectionalShape</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DirectionalShape(ABC):
+    @abstractmethod
+    def values(self, direction_degrees: np.ndarray) -&gt; np.ndarray:
+        pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.RaisedCosine" href="#ocean_science_utilities.wavespectra.parametric.RaisedCosine">RaisedCosine</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.DirectionalShape.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, direction_degrees: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def values(self, direction_degrees: np.ndarray) -&gt; np.ndarray:
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.FrequencyShape"><code class="flex name class">
+<span>class <span class="ident">FrequencyShape</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FrequencyShape(ABC):
+    @abstractmethod
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.GaussianSpectrum" href="#ocean_science_utilities.wavespectra.parametric.GaussianSpectrum">GaussianSpectrum</a></li>
+<li><a title="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum" href="#ocean_science_utilities.wavespectra.parametric.JonswapSpectrum">JonswapSpectrum</a></li>
+<li><a title="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum" href="#ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum">PhillipsSpectrum</a></li>
+<li><a title="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum" href="#ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum">PiersonMoskowitzSpectrum</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.FrequencyShape.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, frequency_hertz: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.GaussianSpectrum"><code class="flex name class">
+<span>class <span class="ident">GaussianSpectrum</span></span>
+<span>(</span><span>peak_frequency_hertz: float, m0: float = 1, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GaussianSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+        self.m0 = m0
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self.standard_deviation_hertz = kwargs.get(
+            &#34;standard_deviation_hertz&#34;, peak_frequency_hertz / 10
+        )
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        return (
+            self.m0
+            / self.standard_deviation_hertz
+            / np.sqrt(2 * np.pi)
+            * np.exp(
+                -0.5
+                * (frequency_hertz - self._peak_frequency_hertz) ** 2
+                / self.standard_deviation_hertz**2
+            )
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape">FrequencyShape</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.GaussianSpectrum.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, frequency_hertz: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+    return (
+        self.m0
+        / self.standard_deviation_hertz
+        / np.sqrt(2 * np.pi)
+        * np.exp(
+            -0.5
+            * (frequency_hertz - self._peak_frequency_hertz) ** 2
+            / self.standard_deviation_hertz**2
+        )
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum"><code class="flex name class">
+<span>class <span class="ident">JonswapSpectrum</span></span>
+<span>(</span><span>peak_frequency_hertz: float, m0: float = 1, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class JonswapSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self._g = kwargs.get(&#34;g&#34;, GRAVITATIONAL_CONSTANT)
+        self._sigma_a = kwargs.get(&#34;sigma_a&#34;, 0.07)
+        self._sigma_b = kwargs.get(&#34;sigma_b&#34;, 0.09)
+        self.gamma = kwargs.get(&#34;gamma&#34;, 3.3)
+        self._alpha = self.alpha(m0)
+
+    def alpha(self, m0: float) -&gt; float:
+        # Approximation by Yamaguchi (1984), &#34;Approximate expressions for integral
+        # properties of the JONSWAP spectrum&#34; Proc. Japanese Society of Civil Engineers,
+        # 345/II-1, 149–152 [in Japanese]. Taken from Holthuijsen
+        # &#34;waves in oceanic and coastal waters&#34;. Not valid if sigma_a or sigma_b
+        # are changed from defaults. Otherwise accurate to within 0.25%
+        #
+        return (
+            m0
+            * (2 * np.pi * self._peak_frequency_hertz) ** 4
+            / self._g**2
+            / (0.06533 * self.gamma**0.8015 + 0.13467)
+        )
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        &#34;&#34;&#34;
+        Jonswap variance-density spectrum with frequency in Hz as
+        dependant variable. See e.g. Holthuijsen &#34;Waves in Oceanic Water.&#34;
+
+        :param frequency: frequency in Hz (scalar or array)
+        :param peak_frequency: peak frequency in Hz
+        :param alpha: Phillips constant (default 0.0081)
+        :param g: gravitational acceleration (default 9.81)
+        :return:
+        &#34;&#34;&#34;
+        values = np.zeros(len(frequency_hertz))
+        msk = frequency_hertz &gt; 0
+
+        sigma = np.where(
+            frequency_hertz &lt;= self._peak_frequency_hertz, self._sigma_a, self._sigma_b
+        )
+        peak_enhancement = self.gamma ** np.exp(
+            -1 / 2 * ((frequency_hertz / self._peak_frequency_hertz - 1) / sigma) ** 2
+        )
+
+        values[msk] = (
+            self._alpha
+            * self._g**2
+            * (2 * np.pi) ** -4
+            * frequency_hertz[msk] ** -5
+            * np.exp(
+                -5 / 4 * (self._peak_frequency_hertz / frequency_hertz[msk]) ** 4
+            )
+            * peak_enhancement[msk]
+        )
+        return values</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape">FrequencyShape</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum.alpha"><code class="name flex">
+<span>def <span class="ident">alpha</span></span>(<span>self, m0: float) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def alpha(self, m0: float) -&gt; float:
+    # Approximation by Yamaguchi (1984), &#34;Approximate expressions for integral
+    # properties of the JONSWAP spectrum&#34; Proc. Japanese Society of Civil Engineers,
+    # 345/II-1, 149–152 [in Japanese]. Taken from Holthuijsen
+    # &#34;waves in oceanic and coastal waters&#34;. Not valid if sigma_a or sigma_b
+    # are changed from defaults. Otherwise accurate to within 0.25%
+    #
+    return (
+        m0
+        * (2 * np.pi * self._peak_frequency_hertz) ** 4
+        / self._g**2
+        / (0.06533 * self.gamma**0.8015 + 0.13467)
+    )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, frequency_hertz: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Jonswap variance-density spectrum with frequency in Hz as
+dependant variable. See e.g. Holthuijsen "Waves in Oceanic Water."</p>
+<p>:param frequency: frequency in Hz (scalar or array)
+:param peak_frequency: peak frequency in Hz
+:param alpha: Phillips constant (default 0.0081)
+:param g: gravitational acceleration (default 9.81)
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+    &#34;&#34;&#34;
+    Jonswap variance-density spectrum with frequency in Hz as
+    dependant variable. See e.g. Holthuijsen &#34;Waves in Oceanic Water.&#34;
+
+    :param frequency: frequency in Hz (scalar or array)
+    :param peak_frequency: peak frequency in Hz
+    :param alpha: Phillips constant (default 0.0081)
+    :param g: gravitational acceleration (default 9.81)
+    :return:
+    &#34;&#34;&#34;
+    values = np.zeros(len(frequency_hertz))
+    msk = frequency_hertz &gt; 0
+
+    sigma = np.where(
+        frequency_hertz &lt;= self._peak_frequency_hertz, self._sigma_a, self._sigma_b
+    )
+    peak_enhancement = self.gamma ** np.exp(
+        -1 / 2 * ((frequency_hertz / self._peak_frequency_hertz - 1) / sigma) ** 2
+    )
+
+    values[msk] = (
+        self._alpha
+        * self._g**2
+        * (2 * np.pi) ** -4
+        * frequency_hertz[msk] ** -5
+        * np.exp(
+            -5 / 4 * (self._peak_frequency_hertz / frequency_hertz[msk]) ** 4
+        )
+        * peak_enhancement[msk]
+    )
+    return values</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum"><code class="flex name class">
+<span>class <span class="ident">PhillipsSpectrum</span></span>
+<span>(</span><span>peak_frequency_hertz: float, m0: float = 1, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PhillipsSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self._g = kwargs.get(&#34;g&#34;, GRAVITATIONAL_CONSTANT)
+        self._alpha = self.alpha(m0)
+
+    def alpha(self, m0: float) -&gt; float:
+        return m0 * 8 * (np.pi) ** 4 * self._peak_frequency_hertz**4 / self._g**2
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        &#34;&#34;&#34;
+        Phillips variance-density spectrum with frequency in Hz as
+        dependent variable.
+
+        :return:
+        &#34;&#34;&#34;
+        values = np.zeros(len(frequency_hertz))
+        msk = frequency_hertz &gt; 0
+        values[msk] = (
+            self._alpha
+            * self._g**2
+            * (2 * np.pi) ** -4
+            * frequency_hertz[msk] ** -5
+        )
+        return values</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape">FrequencyShape</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum.alpha"><code class="name flex">
+<span>def <span class="ident">alpha</span></span>(<span>self, m0: float) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def alpha(self, m0: float) -&gt; float:
+    return m0 * 8 * (np.pi) ** 4 * self._peak_frequency_hertz**4 / self._g**2</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, frequency_hertz: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Phillips variance-density spectrum with frequency in Hz as
+dependent variable.</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+    &#34;&#34;&#34;
+    Phillips variance-density spectrum with frequency in Hz as
+    dependent variable.
+
+    :return:
+    &#34;&#34;&#34;
+    values = np.zeros(len(frequency_hertz))
+    msk = frequency_hertz &gt; 0
+    values[msk] = (
+        self._alpha
+        * self._g**2
+        * (2 * np.pi) ** -4
+        * frequency_hertz[msk] ** -5
+    )
+    return values</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum"><code class="flex name class">
+<span>class <span class="ident">PiersonMoskowitzSpectrum</span></span>
+<span>(</span><span>peak_frequency_hertz: float, m0: float = 1, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PiersonMoskowitzSpectrum(FrequencyShape):
+    def __init__(self, peak_frequency_hertz: float, m0: float = 1, **kwargs):
+        self._peak_frequency_hertz = peak_frequency_hertz
+        self._g = kwargs.get(&#34;g&#34;, GRAVITATIONAL_CONSTANT)
+        self._alpha = self.alpha(m0)
+
+    def alpha(self, m0: float) -&gt; float:
+        return m0 * 5 * (2 * np.pi * self._peak_frequency_hertz) ** 4 / self._g**2
+
+    def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+        &#34;&#34;&#34;
+        Pierson Moskowitz variance-density spectrum with frequency in Hz as
+        dependant variable. See e.g. Holthuijsen &#34;Waves in Oceanic Water.&#34;
+
+        :param frequency: frequency in Hz (scalar or array)
+        :param peak_frequency: peak frequency in Hz
+        :param alpha: Phillips constant (default 0.0081)
+        :param g: gravitational acceleration (default 9.81)
+        :return:
+        &#34;&#34;&#34;
+        values = np.zeros(len(frequency_hertz))
+        msk = frequency_hertz &gt; 0
+        values[msk] = (
+            self._alpha
+            * self._g**2
+            * (2 * np.pi) ** -4
+            * frequency_hertz[msk] ** -5
+            * np.exp(
+                -5 / 4 * (self._peak_frequency_hertz / frequency_hertz[msk]) ** 4
+            )
+        )
+        return values</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape">FrequencyShape</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum.alpha"><code class="name flex">
+<span>def <span class="ident">alpha</span></span>(<span>self, m0: float) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def alpha(self, m0: float) -&gt; float:
+    return m0 * 5 * (2 * np.pi * self._peak_frequency_hertz) ** 4 / self._g**2</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, frequency_hertz: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pierson Moskowitz variance-density spectrum with frequency in Hz as
+dependant variable. See e.g. Holthuijsen "Waves in Oceanic Water."</p>
+<p>:param frequency: frequency in Hz (scalar or array)
+:param peak_frequency: peak frequency in Hz
+:param alpha: Phillips constant (default 0.0081)
+:param g: gravitational acceleration (default 9.81)
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self, frequency_hertz: np.ndarray) -&gt; np.ndarray:
+    &#34;&#34;&#34;
+    Pierson Moskowitz variance-density spectrum with frequency in Hz as
+    dependant variable. See e.g. Holthuijsen &#34;Waves in Oceanic Water.&#34;
+
+    :param frequency: frequency in Hz (scalar or array)
+    :param peak_frequency: peak frequency in Hz
+    :param alpha: Phillips constant (default 0.0081)
+    :param g: gravitational acceleration (default 9.81)
+    :return:
+    &#34;&#34;&#34;
+    values = np.zeros(len(frequency_hertz))
+    msk = frequency_hertz &gt; 0
+    values[msk] = (
+        self._alpha
+        * self._g**2
+        * (2 * np.pi) ** -4
+        * frequency_hertz[msk] ** -5
+        * np.exp(
+            -5 / 4 * (self._peak_frequency_hertz / frequency_hertz[msk]) ** 4
+        )
+    )
+    return values</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavespectra.parametric.RaisedCosine"><code class="flex name class">
+<span>class <span class="ident">RaisedCosine</span></span>
+<span>(</span><span>mean_direction_degrees: float = 0, width_degrees: float = 28.64)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RaisedCosine(DirectionalShape):
+    def __init__(self, mean_direction_degrees: float = 0, width_degrees: float = 28.64):
+        self._power = self.power(width_degrees)
+        self._mean_direction_degrees = mean_direction_degrees
+        self._normalization = (
+            np.pi
+            / 180
+            * scipy.special.gamma(self._power / 2 + 1)
+            / (scipy.special.gamma(self._power / 2 + 1 / 2) * np.sqrt(np.pi))
+        )
+
+    @staticmethod
+    def power(width_degrees: float) -&gt; float:
+        return 4 / ((np.pi * width_degrees / 90) ** 2) - 2
+
+    def values(self, direction_degrees: np.ndarray) -&gt; np.ndarray:
+        angle = (direction_degrees - self._mean_direction_degrees + 180) % 360 - 180
+        with np.errstate(invalid=&#34;ignore&#34;, divide=&#34;ignore&#34;):
+            return np.where(
+                np.abs(angle) &lt;= 90,
+                self._normalization * np.cos(angle * np.pi / 180) ** self._power,
+                0,
+            )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavespectra.parametric.DirectionalShape" href="#ocean_science_utilities.wavespectra.parametric.DirectionalShape">DirectionalShape</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.RaisedCosine.power"><code class="name flex">
+<span>def <span class="ident">power</span></span>(<span>width_degrees: float) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def power(width_degrees: float) -&gt; float:
+    return 4 / ((np.pi * width_degrees / 90) ** 2) - 2</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavespectra.parametric.RaisedCosine.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self, direction_degrees: numpy.ndarray) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self, direction_degrees: np.ndarray) -&gt; np.ndarray:
+    angle = (direction_degrees - self._mean_direction_degrees + 180) % 360 - 180
+    with np.errstate(invalid=&#34;ignore&#34;, divide=&#34;ignore&#34;):
+        return np.where(
+            np.abs(angle) &lt;= 90,
+            self._normalization * np.cos(angle * np.pi / 180) ** self._power,
+            0,
+        )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ocean_science_utilities.wavespectra" href="index.html">ocean_science_utilities.wavespectra</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.create_directional_shape" href="#ocean_science_utilities.wavespectra.parametric.create_directional_shape">create_directional_shape</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.create_frequency_shape" href="#ocean_science_utilities.wavespectra.parametric.create_frequency_shape">create_frequency_shape</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.create_parametric_frequency_direction_spectrum" href="#ocean_science_utilities.wavespectra.parametric.create_parametric_frequency_direction_spectrum">create_parametric_frequency_direction_spectrum</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.create_parametric_frequency_spectrum" href="#ocean_science_utilities.wavespectra.parametric.create_parametric_frequency_spectrum">create_parametric_frequency_spectrum</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.create_parametric_spectrum" href="#ocean_science_utilities.wavespectra.parametric.create_parametric_spectrum">create_parametric_spectrum</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.DirectionalShape" href="#ocean_science_utilities.wavespectra.parametric.DirectionalShape">DirectionalShape</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.DirectionalShape.values" href="#ocean_science_utilities.wavespectra.parametric.DirectionalShape.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape">FrequencyShape</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.FrequencyShape.values" href="#ocean_science_utilities.wavespectra.parametric.FrequencyShape.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.GaussianSpectrum" href="#ocean_science_utilities.wavespectra.parametric.GaussianSpectrum">GaussianSpectrum</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.GaussianSpectrum.values" href="#ocean_science_utilities.wavespectra.parametric.GaussianSpectrum.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum" href="#ocean_science_utilities.wavespectra.parametric.JonswapSpectrum">JonswapSpectrum</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum.alpha" href="#ocean_science_utilities.wavespectra.parametric.JonswapSpectrum.alpha">alpha</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.JonswapSpectrum.values" href="#ocean_science_utilities.wavespectra.parametric.JonswapSpectrum.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum" href="#ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum">PhillipsSpectrum</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum.alpha" href="#ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum.alpha">alpha</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum.values" href="#ocean_science_utilities.wavespectra.parametric.PhillipsSpectrum.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum" href="#ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum">PiersonMoskowitzSpectrum</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum.alpha" href="#ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum.alpha">alpha</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum.values" href="#ocean_science_utilities.wavespectra.parametric.PiersonMoskowitzSpectrum.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavespectra.parametric.RaisedCosine" href="#ocean_science_utilities.wavespectra.parametric.RaisedCosine">RaisedCosine</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.RaisedCosine.power" href="#ocean_science_utilities.wavespectra.parametric.RaisedCosine.power">power</a></code></li>
+<li><code><a title="ocean_science_utilities.wavespectra.parametric.RaisedCosine.values" href="#ocean_science_utilities.wavespectra.parametric.RaisedCosine.values">values</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

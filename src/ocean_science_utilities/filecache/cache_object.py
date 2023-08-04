@@ -27,7 +27,7 @@ from typing import Callable, Dict, List, Optional, Tuple, Union
 from tqdm import tqdm
 from warnings import warn
 
-from ocean_science_utilities.tool_log import logger
+from ocean_science_utilities.tools.log import logger
 from ocean_science_utilities.filecache.remote_resources import (
     _RemoteResourceUriNotFound,
     RemoteResourceHTTPS,
@@ -255,6 +255,18 @@ class FileCache:
         name,
         function: Callable[[str], Optional[bool]],
     ):
+        """
+        AI is creating summary for set_directive_function
+
+        Args:
+            directive ([type]): [description]
+            name ([type]): [description]
+            function (Callable[[str], Optional[bool]]): [description]
+
+        Raises:
+            KeyError: [description]
+            ValueError: [description]
+        """
         if directive not in self.directives:
             raise KeyError(f"{directive} is not a valid cache directive.")
 

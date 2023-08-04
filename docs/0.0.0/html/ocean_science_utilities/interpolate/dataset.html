@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>ocean_science_utilities.interpolate.dataset API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ocean_science_utilities.interpolate.dataset</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import pandas as pd
+import numpy as np
+import xarray
+
+from typing import Dict, Tuple, Mapping, Optional, Union, Hashable
+
+from ocean_science_utilities.interpolate.dataarray import interpolate_track_data_arrray
+from ocean_science_utilities.interpolate.geometry import Geometry, convert_to_track_set
+from ocean_science_utilities.interpolate.nd_interp import NdInterpolator
+from ocean_science_utilities.tools.time import to_datetime64
+
+
+def interpolate_dataset_grid(
+    coordinates: Dict[str, Union[xarray.DataArray, np.ndarray]],
+    data_set: xarray.Dataset,
+    periodic_data: Optional[Mapping[Hashable, Tuple[int, int]]] = None,
+    longitude_variable_in_dataset: str = &#34;longitude&#34;,
+    nearest_neighbour: bool = False,
+) -&gt; Optional[xarray.Dataset]:
+    if periodic_data is None:
+        periodic_data = {}
+        if longitude_variable_in_dataset in data_set:
+            periodic_data[longitude_variable_in_dataset] = (360, 180)
+
+        for variable in data_set:
+            if &#34;direction&#34; in str(variable).lower():
+                periodic_data[variable] = (360, 360)
+
+    first = True
+    return_data_set = None
+    for coordinate_name, coordinate_value in coordinates.items():
+        if first:
+            _data_set = data_set
+            first = False
+        else:
+            _data_set = return_data_set   # type: ignore
+        return_data_set = interpolate_dataset_along_axis(
+            coordinate_value,
+            _data_set,   # type: ignore
+            coordinate_name,
+            nearest_neighbour=nearest_neighbour,
+        )
+    return return_data_set
+
+
+def interpolate_dataset_along_axis(
+    coordinate_value: Union[xarray.DataArray, np.ndarray],
+    data_set: xarray.Dataset,
+    coordinate_name: str = &#34;time&#34;,
+    periodic_data: Optional[Mapping[Hashable, Tuple[int, int]]] = None,
+    periodic_coordinates: Optional[Dict] = None,
+    nearest_neighbour=False,
+) -&gt; xarray.Dataset:
+    if periodic_data is None:
+        periodic_data = {&#34;longitude&#34;: (360, 180)}
+        for variable in data_set:
+            if &#34;direction&#34; in str(variable).lower():
+                periodic_data[variable] = (360, 360)
+
+    if periodic_coordinates is None:
+        periodic_coordinates = {&#34;longitude&#34;: 360, &#34;direction&#34;: 360}
+
+    if coordinate_name == &#34;time&#34;:
+        # Ensure that we work with datetime64 for comparisons.
+        coordinate_value = to_datetime64(coordinate_value)  # type: ignore
+
+    points = {coordinate_name: np.atleast_1d(coordinate_value)}
+    return_data_set = xarray.Dataset()
+
+    for variable in data_set:
+        if coordinate_name not in list(data_set[variable].coords):
+            return_data_set[variable] = data_set[variable]
+            continue
+
+        coordinate_names = [str(x) for x in data_set[variable].dims]
+        data_coordinates = [
+            (name, data_set[variable].coords[name].values) for name in coordinate_names
+        ]
+
+        period_data, discont_data = None, None
+        if variable in periodic_data:
+            period_data, discont_data = periodic_data[variable]
+
+        dimensions = list(data_set[variable].dims)
+
+        def get_data(indices, idims):
+            index = [slice(None)] * len(dimensions)
+            for interp_index, idim in zip(indices, idims):
+                index[idim] = interp_index
+            return data_set[variable].values[tuple(index)]
+
+        data_accessing = NdInterpolator(
+            get_data,
+            data_coordinates,
+            data_set[variable].shape,
+            list(points.keys()),
+            coordinate_name,
+            periodic_coordinates,
+            period_data,
+            discont_data,
+            nearest_neighbour,
+        )
+
+        coor = {value[0]: value[1] for value in data_coordinates}
+        for coor_name, coor_value in points.items():
+            coor[coor_name] = coor_value
+
+        return_data_set[variable] = xarray.DataArray(
+            data=data_accessing.interpolate(points),
+            coords=coor,
+            dims=data_set[variable].dims,
+        )
+
+    return return_data_set
+
+
+def interpolate_dataset(
+    data_set: xarray.Dataset,
+    geometry: Geometry,
+    periodic_coordinates: Optional[Dict[str, float]] = None,
+    periodic_data: Optional[Dict[Hashable, Tuple[float, float]]] = None,
+    time_variable_in_dataset: str = &#34;time&#34;,
+    longitude_variable_in_dataset: str = &#34;longitude&#34;,
+    latitude_variable_in_dataset: str = &#34;latitude&#34;,
+) -&gt; Dict[str, pd.DataFrame]:
+    geometry = convert_to_track_set(geometry, data_set[time_variable_in_dataset].values)
+
+    if periodic_coordinates is None:
+        periodic_coordinates = {longitude_variable_in_dataset: 360}
+
+    for variable in data_set:
+        if &#34;direction&#34; in str(variable).lower():
+            periodic_data = {variable: (360, 360)}
+
+    out = {}
+    for name, track in geometry.tracks.items():
+        points = {
+            time_variable_in_dataset: track.time,
+            longitude_variable_in_dataset: track.longitude,
+            latitude_variable_in_dataset: track.latitude,
+        }
+        out[name] = interpolate_at_points(
+            data_set=data_set,
+            points=points,
+            independent_variable=time_variable_in_dataset,
+            periodic_coordinates=periodic_coordinates,
+            periodic_data=periodic_data,
+        ).to_dataframe()
+        if out[name].index.tz is None:  # type: ignore
+            out[name].index = out[name].index.tz_localize(&#34;utc&#34;)  # type: ignore
+        out[name].reset_index(inplace=True)
+    return out
+
+
+def interpolate_at_points(
+    data_set: xarray.Dataset,
+    points: Dict[str, np.ndarray],
+    independent_variable: Optional[str] = None,
+    periodic_coordinates: Optional[Dict[str, float]] = None,
+    periodic_data: Optional[Dict[Hashable, Tuple[float, float]]] = None,
+) -&gt; xarray.Dataset:
+    if periodic_data is None:
+        periodic_data = {}
+
+    dimensions = data_set.dims
+    if independent_variable is None:
+        if &#34;time&#34; in dimensions:
+            independent_variable = &#34;time&#34;
+        else:
+            independent_variable = str(dimensions[0])
+
+    return_data_set = xarray.Dataset(
+        coords={independent_variable: points[independent_variable]}
+    )
+    for variable in data_set:
+        if variable in periodic_data:
+            period_data = periodic_data[variable][0]
+            discont = periodic_data[variable][1]
+        else:
+            period_data = None
+            discont = None
+
+        return_data_set[variable] = interpolate_track_data_arrray(
+            data_set[variable],
+            points,
+            independent_variable,
+            periodic_coordinates=periodic_coordinates,
+            period_data=period_data,
+            discont=discont,
+        )
+    return return_data_set
+
+
+def tracks_as_dataset(
+    time, drifter_tracks: Mapping[Hashable, pd.DataFrame]
+) -&gt; xarray.DataArray:
+    tracks = {}
+    for track_id, track in drifter_tracks.items():
+        track.set_index(&#34;time&#34;, inplace=True)
+        variables = list(track.columns)
+        tracks[track_id] = xarray.DataArray(
+            track,
+            coords={&#34;time&#34;: time, &#34;variables&#34;: variables},
+            dims=[&#34;time&#34;, &#34;variables&#34;],
+            name=track_id,
+        )
+
+    dataset = xarray.Dataset(tracks).to_array(dim=&#34;spotter_id&#34;)
+    return dataset</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="ocean_science_utilities.interpolate.dataset.interpolate_at_points"><code class="name flex">
+<span>def <span class="ident">interpolate_at_points</span></span>(<span>data_set: xarray.core.dataset.Dataset, points: Dict[str, numpy.ndarray], independent_variable: Optional[str] = None, periodic_coordinates: Optional[Dict[str, float]] = None, periodic_data: Optional[Dict[Hashable, Tuple[float, float]]] = None) ‑> xarray.core.dataset.Dataset</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def interpolate_at_points(
+    data_set: xarray.Dataset,
+    points: Dict[str, np.ndarray],
+    independent_variable: Optional[str] = None,
+    periodic_coordinates: Optional[Dict[str, float]] = None,
+    periodic_data: Optional[Dict[Hashable, Tuple[float, float]]] = None,
+) -&gt; xarray.Dataset:
+    if periodic_data is None:
+        periodic_data = {}
+
+    dimensions = data_set.dims
+    if independent_variable is None:
+        if &#34;time&#34; in dimensions:
+            independent_variable = &#34;time&#34;
+        else:
+            independent_variable = str(dimensions[0])
+
+    return_data_set = xarray.Dataset(
+        coords={independent_variable: points[independent_variable]}
+    )
+    for variable in data_set:
+        if variable in periodic_data:
+            period_data = periodic_data[variable][0]
+            discont = periodic_data[variable][1]
+        else:
+            period_data = None
+            discont = None
+
+        return_data_set[variable] = interpolate_track_data_arrray(
+            data_set[variable],
+            points,
+            independent_variable,
+            periodic_coordinates=periodic_coordinates,
+            period_data=period_data,
+            discont=discont,
+        )
+    return return_data_set</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.interpolate.dataset.interpolate_dataset"><code class="name flex">
+<span>def <span class="ident">interpolate_dataset</span></span>(<span>data_set: xarray.core.dataset.Dataset, geometry: Union[ocean_science_utilities.interpolate.geometry._Geometry, Sequence[numpy.ndarray], Sequence[Sequence], Sequence[numbers.Number], Mapping], periodic_coordinates: Optional[Dict[str, float]] = None, periodic_data: Optional[Dict[Hashable, Tuple[float, float]]] = None, time_variable_in_dataset: str = 'time', longitude_variable_in_dataset: str = 'longitude', latitude_variable_in_dataset: str = 'latitude') ‑> Dict[str, pandas.core.frame.DataFrame]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def interpolate_dataset(
+    data_set: xarray.Dataset,
+    geometry: Geometry,
+    periodic_coordinates: Optional[Dict[str, float]] = None,
+    periodic_data: Optional[Dict[Hashable, Tuple[float, float]]] = None,
+    time_variable_in_dataset: str = &#34;time&#34;,
+    longitude_variable_in_dataset: str = &#34;longitude&#34;,
+    latitude_variable_in_dataset: str = &#34;latitude&#34;,
+) -&gt; Dict[str, pd.DataFrame]:
+    geometry = convert_to_track_set(geometry, data_set[time_variable_in_dataset].values)
+
+    if periodic_coordinates is None:
+        periodic_coordinates = {longitude_variable_in_dataset: 360}
+
+    for variable in data_set:
+        if &#34;direction&#34; in str(variable).lower():
+            periodic_data = {variable: (360, 360)}
+
+    out = {}
+    for name, track in geometry.tracks.items():
+        points = {
+            time_variable_in_dataset: track.time,
+            longitude_variable_in_dataset: track.longitude,
+            latitude_variable_in_dataset: track.latitude,
+        }
+        out[name] = interpolate_at_points(
+            data_set=data_set,
+            points=points,
+            independent_variable=time_variable_in_dataset,
+            periodic_coordinates=periodic_coordinates,
+            periodic_data=periodic_data,
+        ).to_dataframe()
+        if out[name].index.tz is None:  # type: ignore
+            out[name].index = out[name].index.tz_localize(&#34;utc&#34;)  # type: ignore
+        out[name].reset_index(inplace=True)
+    return out</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.interpolate.dataset.interpolate_dataset_along_axis"><code class="name flex">
+<span>def <span class="ident">interpolate_dataset_along_axis</span></span>(<span>coordinate_value: Union[xarray.core.dataarray.DataArray, numpy.ndarray], data_set: xarray.core.dataset.Dataset, coordinate_name: str = 'time', periodic_data: Optional[Mapping[Hashable, Tuple[int, int]]] = None, periodic_coordinates: Optional[Dict] = None, nearest_neighbour=False) ‑> xarray.core.dataset.Dataset</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def interpolate_dataset_along_axis(
+    coordinate_value: Union[xarray.DataArray, np.ndarray],
+    data_set: xarray.Dataset,
+    coordinate_name: str = &#34;time&#34;,
+    periodic_data: Optional[Mapping[Hashable, Tuple[int, int]]] = None,
+    periodic_coordinates: Optional[Dict] = None,
+    nearest_neighbour=False,
+) -&gt; xarray.Dataset:
+    if periodic_data is None:
+        periodic_data = {&#34;longitude&#34;: (360, 180)}
+        for variable in data_set:
+            if &#34;direction&#34; in str(variable).lower():
+                periodic_data[variable] = (360, 360)
+
+    if periodic_coordinates is None:
+        periodic_coordinates = {&#34;longitude&#34;: 360, &#34;direction&#34;: 360}
+
+    if coordinate_name == &#34;time&#34;:
+        # Ensure that we work with datetime64 for comparisons.
+        coordinate_value = to_datetime64(coordinate_value)  # type: ignore
+
+    points = {coordinate_name: np.atleast_1d(coordinate_value)}
+    return_data_set = xarray.Dataset()
+
+    for variable in data_set:
+        if coordinate_name not in list(data_set[variable].coords):
+            return_data_set[variable] = data_set[variable]
+            continue
+
+        coordinate_names = [str(x) for x in data_set[variable].dims]
+        data_coordinates = [
+            (name, data_set[variable].coords[name].values) for name in coordinate_names
+        ]
+
+        period_data, discont_data = None, None
+        if variable in periodic_data:
+            period_data, discont_data = periodic_data[variable]
+
+        dimensions = list(data_set[variable].dims)
+
+        def get_data(indices, idims):
+            index = [slice(None)] * len(dimensions)
+            for interp_index, idim in zip(indices, idims):
+                index[idim] = interp_index
+            return data_set[variable].values[tuple(index)]
+
+        data_accessing = NdInterpolator(
+            get_data,
+            data_coordinates,
+            data_set[variable].shape,
+            list(points.keys()),
+            coordinate_name,
+            periodic_coordinates,
+            period_data,
+            discont_data,
+            nearest_neighbour,
+        )
+
+        coor = {value[0]: value[1] for value in data_coordinates}
+        for coor_name, coor_value in points.items():
+            coor[coor_name] = coor_value
+
+        return_data_set[variable] = xarray.DataArray(
+            data=data_accessing.interpolate(points),
+            coords=coor,
+            dims=data_set[variable].dims,
+        )
+
+    return return_data_set</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.interpolate.dataset.interpolate_dataset_grid"><code class="name flex">
+<span>def <span class="ident">interpolate_dataset_grid</span></span>(<span>coordinates: Dict[str, Union[xarray.core.dataarray.DataArray, numpy.ndarray]], data_set: xarray.core.dataset.Dataset, periodic_data: Optional[Mapping[Hashable, Tuple[int, int]]] = None, longitude_variable_in_dataset: str = 'longitude', nearest_neighbour: bool = False) ‑> Optional[xarray.core.dataset.Dataset]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def interpolate_dataset_grid(
+    coordinates: Dict[str, Union[xarray.DataArray, np.ndarray]],
+    data_set: xarray.Dataset,
+    periodic_data: Optional[Mapping[Hashable, Tuple[int, int]]] = None,
+    longitude_variable_in_dataset: str = &#34;longitude&#34;,
+    nearest_neighbour: bool = False,
+) -&gt; Optional[xarray.Dataset]:
+    if periodic_data is None:
+        periodic_data = {}
+        if longitude_variable_in_dataset in data_set:
+            periodic_data[longitude_variable_in_dataset] = (360, 180)
+
+        for variable in data_set:
+            if &#34;direction&#34; in str(variable).lower():
+                periodic_data[variable] = (360, 360)
+
+    first = True
+    return_data_set = None
+    for coordinate_name, coordinate_value in coordinates.items():
+        if first:
+            _data_set = data_set
+            first = False
+        else:
+            _data_set = return_data_set   # type: ignore
+        return_data_set = interpolate_dataset_along_axis(
+            coordinate_value,
+            _data_set,   # type: ignore
+            coordinate_name,
+            nearest_neighbour=nearest_neighbour,
+        )
+    return return_data_set</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.interpolate.dataset.tracks_as_dataset"><code class="name flex">
+<span>def <span class="ident">tracks_as_dataset</span></span>(<span>time, drifter_tracks: Mapping[Hashable, pandas.core.frame.DataFrame]) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tracks_as_dataset(
+    time, drifter_tracks: Mapping[Hashable, pd.DataFrame]
+) -&gt; xarray.DataArray:
+    tracks = {}
+    for track_id, track in drifter_tracks.items():
+        track.set_index(&#34;time&#34;, inplace=True)
+        variables = list(track.columns)
+        tracks[track_id] = xarray.DataArray(
+            track,
+            coords={&#34;time&#34;: time, &#34;variables&#34;: variables},
+            dims=[&#34;time&#34;, &#34;variables&#34;],
+            name=track_id,
+        )
+
+    dataset = xarray.Dataset(tracks).to_array(dim=&#34;spotter_id&#34;)
+    return dataset</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ocean_science_utilities.interpolate" href="index.html">ocean_science_utilities.interpolate</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="ocean_science_utilities.interpolate.dataset.interpolate_at_points" href="#ocean_science_utilities.interpolate.dataset.interpolate_at_points">interpolate_at_points</a></code></li>
+<li><code><a title="ocean_science_utilities.interpolate.dataset.interpolate_dataset" href="#ocean_science_utilities.interpolate.dataset.interpolate_dataset">interpolate_dataset</a></code></li>
+<li><code><a title="ocean_science_utilities.interpolate.dataset.interpolate_dataset_along_axis" href="#ocean_science_utilities.interpolate.dataset.interpolate_dataset_along_axis">interpolate_dataset_along_axis</a></code></li>
+<li><code><a title="ocean_science_utilities.interpolate.dataset.interpolate_dataset_grid" href="#ocean_science_utilities.interpolate.dataset.interpolate_dataset_grid">interpolate_dataset_grid</a></code></li>
+<li><code><a title="ocean_science_utilities.interpolate.dataset.tracks_as_dataset" href="#ocean_science_utilities.interpolate.dataset.tracks_as_dataset">tracks_as_dataset</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

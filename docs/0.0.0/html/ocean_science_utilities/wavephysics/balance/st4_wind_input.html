@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>ocean_science_utilities.wavephysics.balance.st4_wind_input API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ocean_science_utilities.wavephysics.balance.st4_wind_input</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+
+from numba import jit  # type: ignore
+from typing import Optional, TypedDict
+
+from ocean_science_utilities.wavephysics.balance._numba_settings import numba_default
+from ocean_science_utilities.wavephysics.balance.generation import WindGeneration
+from ocean_science_utilities.wavephysics.balance.wam_tail_stress import (
+    tail_stress_parametrization_wam,
+)
+from ocean_science_utilities.wavephysics.fluidproperties import (
+    AIR,
+    WATER,
+    GRAVITATIONAL_ACCELERATION,
+)
+from ocean_science_utilities.wavetheory.lineardispersion import (
+    inverse_intrinsic_dispersion_relation,
+)
+
+
+class ST4WaveGenerationParameters(TypedDict):
+    gravitational_acceleration: float
+    charnock_maximum_roughness: float
+    charnock_constant: float
+    air_density: float
+    water_density: float
+    vonkarman_constant: float
+    wave_age_tuning_parameter: float
+    growth_parameter_betamax: float
+    elevation: float
+    air_viscosity: float
+    viscous_stress_parameter: float
+
+
+class ST4WindInput(WindGeneration):
+    name = &#34;st4 generation&#34;
+
+    def __init__(self, parameters: Optional[ST4WaveGenerationParameters] = None):
+        super(ST4WindInput, self).__init__(parameters)
+        self._wind_source_term_function = _st4_wind_generation_point
+        self._tail_stress_parametrization_function = tail_stress_parametrization_wam
+
+    @staticmethod
+    def default_parameters() -&gt; ST4WaveGenerationParameters:
+        return ST4WaveGenerationParameters(
+            wave_age_tuning_parameter=0.006,
+            growth_parameter_betamax=1.52,
+            gravitational_acceleration=GRAVITATIONAL_ACCELERATION,
+            charnock_maximum_roughness=np.inf,
+            charnock_constant=0.01,
+            air_density=AIR.density,
+            water_density=WATER.density,
+            vonkarman_constant=AIR.vonkarman_constant,
+            elevation=10,
+            air_viscosity=AIR.kinematic_viscosity,
+            viscous_stress_parameter=0.0,
+        )
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# ST4 Point wise implementation functions (apply to a single spatial point)
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@jit(**numba_default)
+def _st4_wind_generation_point(
+    variance_density: np.ndarray,
+    wind,
+    depth: float,
+    roughness_length: float,
+    spectral_grid,
+    parameters,
+    wind_source=None,
+):
+    &#34;&#34;&#34;
+    Implementation of the st4 wind growth rate term as proposed by Janssen 1991-
+    and as described in the ST4 paper.
+
+    :param variance_density: input numpy array of shape (nf,nd), with nf number of
+        frequencies, nd number of directions, that contains variance
+        densities (unit m**2/Hz/Degree).
+    :param wind: Wind input tuple (speed, direction, type) that descripes the wind
+        speed, direction and kind of wind input. The latter can be: &#34;u10&#34;
+        or &#34;friction_velocity&#34;.
+    :param depth: Local water depth in meter.
+    :param roughness_length: Roughness length in meter.
+    :param spectral_grid: numba dictionary containing the spectral grid
+        (frequencies/directions)
+    :param parameters: numba dictionary containing the parameters of the st4 algorithm.
+        See the st4 class for details.
+    :param wind_source: optional numpy array that contains the return values.
+        This helps to avoid reallocating memory if the routine is called often
+        in successive fashion (e.g. during iterative solutions).
+
+    :return: numpy array of shape (nf,nd) containing for each frequency/direction
+        pair the wind input in (m**2/Hz/Degree/s)
+    &#34;&#34;&#34;
+
+    # Get the spectral size
+    number_of_frequencies, number_of_directions = variance_density.shape
+
+    vonkarman_constant = parameters[&#34;vonkarman_constant&#34;]
+    radian_frequency = spectral_grid[&#34;radian_frequency&#34;]
+
+    wind_forcing, wind_direction_degrees, wind_forcing_type = wind
+
+    cosine_mutual_angle_wind_waves = np.cos(
+        (
+            spectral_grid[&#34;radian_direction&#34;]
+            - wind_direction_degrees * np.pi / 180
+            + np.pi
+        )
+        % (2 * np.pi)
+        - np.pi
+    )
+
+    # Allocate the output variable
+    if wind_source is None:
+        wind_source = np.empty((number_of_frequencies, number_of_directions))
+
+    # Preprocess winds to the correct conventions (U10-&gt;friction velocity if need be,
+    # wind direction degrees-&gt;radians)
+    if wind_forcing_type == &#34;u10&#34;:
+        friction_velocity = (
+            wind_forcing
+            * vonkarman_constant
+            / np.log(parameters[&#34;elevation&#34;] / roughness_length)
+        )
+    elif wind_forcing_type in [&#34;ustar&#34;, &#34;friction_velocity&#34;]:
+        friction_velocity = wind_forcing
+
+    else:
+        raise ValueError(&#34;Unknown wind input type&#34;)
+
+    # precalculate the constant multiplication.
+    constant_factor = (
+        parameters[&#34;growth_parameter_betamax&#34;]
+        / vonkarman_constant**2
+        * parameters[&#34;air_density&#34;]
+        / parameters[&#34;water_density&#34;]
+    )
+
+    if depth == np.inf:
+        wavenumber = radian_frequency**2 / parameters[&#34;gravitational_acceleration&#34;]
+    else:
+        wavenumber = inverse_intrinsic_dispersion_relation(radian_frequency, depth)
+
+    # wave age tuning times the directional cosine.
+    cosine_wave_age_tuning = (
+        parameters[&#34;wave_age_tuning_parameter&#34;] * cosine_mutual_angle_wind_waves
+    )
+
+    # Loop over all frequencies/directions
+    for frequency_index in range(number_of_frequencies):
+        # Since wavenumber and wavespeed only depend on frequency we calculate those
+        # outside of the direction loop.
+        relative_speed = (
+            wavenumber[frequency_index]
+            * friction_velocity
+            / radian_frequency[frequency_index]
+        )
+
+        for direction_index in range(number_of_directions):
+            # If the wave direction has an along wind component we continue.
+            if cosine_mutual_angle_wind_waves[direction_index] &gt; 0:
+                # Calculate the directional factor in the wind input formulation
+                W = relative_speed * cosine_mutual_angle_wind_waves[direction_index]
+
+                # The logarithm of the approximate expression for the dimensionless
+                # critical height (Ardhuin 2010, eq 20).
+                log_dimensionless_critical_height = np.log(
+                    wavenumber[frequency_index] * roughness_length
+                ) + vonkarman_constant / (W + cosine_wave_age_tuning[direction_index])
+
+                # if the dimensionless critical height &gt; 1 we assume there is no more
+                # energy transfer (Janssen 1991), his equation 18.
+                if log_dimensionless_critical_height &gt; 0:
+                    log_dimensionless_critical_height = 0
+
+                growth_rate = (
+                    constant_factor
+                    * np.exp(log_dimensionless_critical_height)
+                    * log_dimensionless_critical_height**4
+                    * W**2
+                    * radian_frequency[frequency_index]
+                )
+
+                wind_source[frequency_index, direction_index] = (
+                    growth_rate * variance_density[frequency_index, direction_index]
+                )
+
+            else:
+                wind_source[frequency_index, direction_index] = 0.0
+
+    return wind_source</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters"><code class="flex name class">
+<span>class <span class="ident">ST4WaveGenerationParameters</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object's
+(key, value) pairs
+dict(iterable) -&gt; new dictionary initialized as if via:
+d = {}
+for k, v in iterable:
+d[k] = v
+dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
+in the keyword argument list.
+For example:
+dict(one=1, two=2)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ST4WaveGenerationParameters(TypedDict):
+    gravitational_acceleration: float
+    charnock_maximum_roughness: float
+    charnock_constant: float
+    air_density: float
+    water_density: float
+    vonkarman_constant: float
+    wave_age_tuning_parameter: float
+    growth_parameter_betamax: float
+    elevation: float
+    air_viscosity: float
+    viscous_stress_parameter: float</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.air_density"><code class="name">var <span class="ident">air_density</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.air_viscosity"><code class="name">var <span class="ident">air_viscosity</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.charnock_constant"><code class="name">var <span class="ident">charnock_constant</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.charnock_maximum_roughness"><code class="name">var <span class="ident">charnock_maximum_roughness</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.elevation"><code class="name">var <span class="ident">elevation</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.gravitational_acceleration"><code class="name">var <span class="ident">gravitational_acceleration</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.growth_parameter_betamax"><code class="name">var <span class="ident">growth_parameter_betamax</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.viscous_stress_parameter"><code class="name">var <span class="ident">viscous_stress_parameter</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.vonkarman_constant"><code class="name">var <span class="ident">vonkarman_constant</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.water_density"><code class="name">var <span class="ident">water_density</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.wave_age_tuning_parameter"><code class="name">var <span class="ident">wave_age_tuning_parameter</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput"><code class="flex name class">
+<span>class <span class="ident">ST4WindInput</span></span>
+<span>(</span><span>parameters: Optional[<a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters">ST4WaveGenerationParameters</a>] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ST4WindInput(WindGeneration):
+    name = &#34;st4 generation&#34;
+
+    def __init__(self, parameters: Optional[ST4WaveGenerationParameters] = None):
+        super(ST4WindInput, self).__init__(parameters)
+        self._wind_source_term_function = _st4_wind_generation_point
+        self._tail_stress_parametrization_function = tail_stress_parametrization_wam
+
+    @staticmethod
+    def default_parameters() -&gt; ST4WaveGenerationParameters:
+        return ST4WaveGenerationParameters(
+            wave_age_tuning_parameter=0.006,
+            growth_parameter_betamax=1.52,
+            gravitational_acceleration=GRAVITATIONAL_ACCELERATION,
+            charnock_maximum_roughness=np.inf,
+            charnock_constant=0.01,
+            air_density=AIR.density,
+            water_density=WATER.density,
+            vonkarman_constant=AIR.vonkarman_constant,
+            elevation=10,
+            air_viscosity=AIR.kinematic_viscosity,
+            viscous_stress_parameter=0.0,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavephysics.balance.generation.WindGeneration" href="generation.html#ocean_science_utilities.wavephysics.balance.generation.WindGeneration">WindGeneration</a></li>
+<li><a title="ocean_science_utilities.wavephysics.balance.source_term.SourceTerm" href="source_term.html#ocean_science_utilities.wavephysics.balance.source_term.SourceTerm">SourceTerm</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavephysics.balance.jb23_wind_input.JB23WindInput" href="jb23_wind_input.html#ocean_science_utilities.wavephysics.balance.jb23_wind_input.JB23WindInput">JB23WindInput</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput.default_parameters"><code class="name flex">
+<span>def <span class="ident">default_parameters</span></span>(<span>) ‑> <a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters">ST4WaveGenerationParameters</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def default_parameters() -&gt; ST4WaveGenerationParameters:
+    return ST4WaveGenerationParameters(
+        wave_age_tuning_parameter=0.006,
+        growth_parameter_betamax=1.52,
+        gravitational_acceleration=GRAVITATIONAL_ACCELERATION,
+        charnock_maximum_roughness=np.inf,
+        charnock_constant=0.01,
+        air_density=AIR.density,
+        water_density=WATER.density,
+        vonkarman_constant=AIR.vonkarman_constant,
+        elevation=10,
+        air_viscosity=AIR.kinematic_viscosity,
+        viscous_stress_parameter=0.0,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ocean_science_utilities.wavephysics.balance" href="index.html">ocean_science_utilities.wavephysics.balance</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters">ST4WaveGenerationParameters</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.air_density" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.air_density">air_density</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.air_viscosity" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.air_viscosity">air_viscosity</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.charnock_constant" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.charnock_constant">charnock_constant</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.charnock_maximum_roughness" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.charnock_maximum_roughness">charnock_maximum_roughness</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.elevation" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.elevation">elevation</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.gravitational_acceleration" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.gravitational_acceleration">gravitational_acceleration</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.growth_parameter_betamax" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.growth_parameter_betamax">growth_parameter_betamax</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.viscous_stress_parameter" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.viscous_stress_parameter">viscous_stress_parameter</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.vonkarman_constant" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.vonkarman_constant">vonkarman_constant</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.water_density" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.water_density">water_density</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.wave_age_tuning_parameter" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WaveGenerationParameters.wave_age_tuning_parameter">wave_age_tuning_parameter</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput">ST4WindInput</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput.default_parameters" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput.default_parameters">default_parameters</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput.name" href="#ocean_science_utilities.wavephysics.balance.st4_wind_input.ST4WindInput.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
