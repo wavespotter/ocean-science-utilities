@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>ocean_science_utilities.wavephysics.balance.wind_inversion API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ocean_science_utilities.wavephysics.balance.wind_inversion</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numba  # type: ignore
+import numpy as np
+import xarray
+
+from numba_progress import ProgressBar  # type: ignore
+from typing import Optional, List, Tuple
+
+from ocean_science_utilities.wavephysics.balance._numba_settings import (
+    numba_nocache_parallel,
+    numba_nocache,
+    numba_default,
+)
+from ocean_science_utilities.wavephysics.balance.balance import SourceTermBalance
+from ocean_science_utilities.wavephysics.balance.dissipation import (
+    _bulk_dissipation_direction_point,
+)
+from ocean_science_utilities.wavephysics.balance.solvers import numba_newton_raphson
+from ocean_science_utilities.wavephysics.balance.stress import (
+    _roughness_estimate_point,
+    _total_stress_point,
+)
+from ocean_science_utilities.wavespectra.operations import numba_integrate_spectral_data
+from ocean_science_utilities.wavespectra.spectrum import FrequencyDirectionSpectrum
+
+
+def windspeed_and_direction_from_spectra(
+    balance: SourceTermBalance,
+    guess_u10: xarray.DataArray,
+    spectrum: FrequencyDirectionSpectrum,
+    jacobian: bool = False,
+    jacobian_parameters: Optional[List[str]] = None,
+    time_derivative_spectrum: Optional[FrequencyDirectionSpectrum] = None,
+    direction_iteration: bool = False,
+) -&gt; xarray.Dataset:
+    &#34;&#34;&#34;
+
+    :param bulk_rate:
+    :param guess_u10:
+    :param guess_direction:
+    :param spectrum:
+    :return:
+    &#34;&#34;&#34;
+    disable = spectrum.number_of_spectra &lt; 100
+    if time_derivative_spectrum is None:
+        time_derivative_spectrum_values = np.zeros(spectrum.shape())
+    else:
+        time_derivative_spectrum_values = (
+            time_derivative_spectrum.variance_density.values
+        )
+
+    with ProgressBar(
+        total=spectrum.number_of_spectra,
+        disable=disable,
+        desc=f&#34;Estimating U10 from {balance.generation.name} &#34;
+        f&#34;and {balance.dissipation.name} wind and dissipation source terms&#34;,
+    ) as progress_bar:
+        if not jacobian:
+            speed, direction = _u10_from_spectra(
+                variance_density=spectrum.variance_density.values,
+                guess_u10=guess_u10.values,
+                depth=spectrum.depth.values,
+                wind_source_term_function=balance.generation._wind_source_term_function,
+                tail_stress_parametrization_function=(
+                    balance.generation._tail_stress_parametrization_function
+                ),
+                dissipation_source_term_function=(
+                    balance.dissipation._dissipation_function
+                ),
+                parameters_generation=balance.generation.parameters,
+                parameters_dissipation=balance.dissipation.parameters,
+                spectral_grid=balance.generation.spectral_grid(spectrum),
+                progress_bar=progress_bar,
+                time_derivative_spectrum=time_derivative_spectrum_values,
+                direction_iteration=direction_iteration,
+            )
+        else:
+            if jacobian_parameters is None:
+                raise ValueError(
+                    &#34;If gradients are requested a parameter list is required&#34;
+                )
+
+            speed, direction, grad = _u10_from_spectra_gradient(
+                variance_density=spectrum.variance_density.values,
+                guess_u10=guess_u10.values,
+                depth=spectrum.depth.values,
+                wind_source_term_function=balance.generation._wind_source_term_function,
+                tail_stress_parametrization_function=(
+                    balance.generation._tail_stress_parametrization_function
+                ),
+                dissipation_source_term_function=(
+                    balance.dissipation._dissipation_function
+                ),
+                grad_parameters=numba.typed.List(jacobian_parameters),
+                parameters_generation=balance.generation.parameters,
+                parameters_dissipation=balance.dissipation.parameters,
+                spectral_grid=balance.generation.spectral_grid(spectrum),
+                time_derivative_spectrum=time_derivative_spectrum,
+                progress_bar=progress_bar,
+                direction_iteration=direction_iteration,
+            )
+            grad = xarray.DataArray(data=grad)
+
+    u10 = xarray.DataArray(
+        data=speed,
+        dims=spectrum.dims_space_time,
+        coords=spectrum.coords_space_time,
+    )
+
+    direction = xarray.DataArray(
+        data=direction,
+        dims=spectrum.dims_space_time,
+        coords=spectrum.coords_space_time,
+    )
+
+    if jacobian:
+        return xarray.Dataset(
+            data_vars={&#34;u10&#34;: u10, &#34;direction&#34;: direction, &#34;jacobian&#34;: grad}
+        )
+    else:
+        return xarray.Dataset(data_vars={&#34;u10&#34;: u10, &#34;direction&#34;: direction})
+
+
+@numba.jit(**numba_nocache)
+def _u10_from_bulk_rate_point(
+    bulk_rate,
+    variance_density,
+    guess_u10,
+    guess_direction,
+    depth,
+    spectral_grid,
+    parameters,
+    wind_source_term_function,
+    tail_stress_parametrization_function,
+    time_derivative_spectrum,
+    direction_iteration,
+):
+    &#34;&#34;&#34;
+
+    :param bulk_rate:
+    :param variance_density: The wave spectrum in m**2/Hz/deg
+    :param guess_u10:
+    :param guess_direction:
+    :param depth:
+    :param spectral_grid:
+    :param parameters:
+    :return:
+    &#34;&#34;&#34;
+
+    direction = guess_direction
+    u10 = guess_u10
+
+    if bulk_rate == 0.0:
+        return 0.0, guess_direction
+
+    # We are tryomg to solve for U10; ~ accuracy of 0.01m/s is sufficient.
+    # We do not really care about relative accuracy - for low winds (&lt;1m/s)
+    # answers are really inaccurate anyway
+    atol = 1.0e-2
+    rtol = 1.0
+    numerical_stepsize = 1e-3
+
+    if direction_iteration:
+        niter = 20
+    else:
+        niter = 1
+
+    for ii in range(0, niter):
+        wind_guess = (u10, direction, &#34;u10&#34;)
+        roughness_memory = [-1.0]
+        args = (
+            roughness_memory,
+            variance_density,
+            wind_guess,
+            depth,
+            wind_source_term_function,
+            tail_stress_parametrization_function,
+            spectral_grid,
+            parameters,
+            bulk_rate,
+            time_derivative_spectrum,
+        )
+
+        try:
+            u10 = numba_newton_raphson(
+                _u10_iteration_function,
+                u10,
+                args,
+                (0, np.inf),
+                atol=atol,
+                rtol=rtol,
+                numerical_stepsize=numerical_stepsize,
+            )
+        except:
+            u10 = np.nan
+            break
+
+        if direction_iteration:
+            wind_guess = (u10, direction, &#34;u10&#34;)
+            _, new_direction = _total_stress_point(
+                roughness_memory[0],
+                variance_density,
+                wind_guess,
+                depth,
+                wind_source_term_function,
+                tail_stress_parametrization_function,
+                spectral_grid,
+                parameters,
+            )
+
+            direction_delta = (new_direction - direction + 180) % 360 - 180
+
+            if abs(direction_delta) &lt; 1.0:
+                direction = new_direction
+                break
+            elif abs(direction_delta) &lt; 10.0:
+                direction = new_direction
+            else:
+                # Some under-relaxation
+                direction = (direction + 0.5 * direction_delta) % 360
+
+    return u10, direction
+
+
+@numba.jit(**numba_nocache)
+def _u10_iteration_function(
+    u10,
+    memory_list,
+    variance_density,
+    wind_guess,
+    depth,
+    wind_source_term_function,
+    tail_stress_parametrization_function,
+    spectral_grid,
+    parameters,
+    bulk_rate,
+    time_derivative_spectrum,
+):
+    &#34;&#34;&#34;
+    To find the 10 meter wind that generates a certain bulk input we need to solve the
+    inverse function for the wind input term. We define a function
+
+            F(U10) = wind_bulk_rate(u10) - specified_bulk_rate
+
+    and use a zero finder to solve for
+
+            F(U10) = 0.
+
+    This function defines the function F. The zero finder is responsible for calling it
+    with the correct trailing arguments.
+
+    :param wind_forcing: Wind input U10 we want to solve for.
+    :param variance_density: The wave spectrum in m**2/Hz/deg
+    :param wind_guess:
+    :param depth:
+    :param spectral_grid:
+    :param parameters:
+    :param bulk_rate:
+    :return:
+    &#34;&#34;&#34;
+    if u10 == 0.0:
+        return -bulk_rate
+
+    wind = (u10, wind_guess[1], wind_guess[2])
+
+    # Estimate the rougness length
+    roughness_length = _roughness_estimate_point(
+        memory_list[0],
+        variance_density,
+        wind,
+        depth,
+        wind_source_term_function,
+        tail_stress_parametrization_function,
+        spectral_grid,
+        parameters,
+    )
+    memory_list[0] = roughness_length
+
+    # Calculate the wind input source term values
+    generation = wind_source_term_function(
+        variance_density,
+        wind,
+        depth,
+        roughness_length,
+        spectral_grid,
+        parameters,
+    )
+
+    # Calculate the contribution of dEdt integrated over the spectrum. We only include
+    # spectral values in region where there is a positive wind input
+    bulk_time_derivative_spectrum = spectral_time_derivative_in_active_region(
+        time_derivative_spectrum,
+        generation,
+        spectral_grid,
+    )
+
+    # Integrate the input and return the difference of the current guess
+    # with the desired bulk rate
+    return (
+        numba_integrate_spectral_data(generation, spectral_grid)
+        - bulk_rate
+        - bulk_time_derivative_spectrum
+    )
+
+
+@numba.jit(**numba_default)
+def spectral_time_derivative_in_active_region(
+    time_derivative_spectrum: np.typing.NDArray,
+    generation: np.typing.NDArray,
+    spectral_grid,
+):
+    frequency_step = spectral_grid[&#34;frequency_step&#34;]
+    direction_step = spectral_grid[&#34;direction_step&#34;]
+    number_of_directions = time_derivative_spectrum.shape[1]
+    number_of_frequencies = time_derivative_spectrum.shape[0]
+
+    bulk_time_derivative_spectrum = 0.0
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            if generation[frequency_index, direction_index] &gt; 0.0:
+                bulk_time_derivative_spectrum += (
+                    time_derivative_spectrum[frequency_index, direction_index]
+                    * direction_step[direction_index]
+                    * frequency_step[frequency_index]
+                )
+    return bulk_time_derivative_spectrum
+
+
+@numba.jit(**numba_nocache)
+def _u10_from_spectra_point(
+    variance_density,
+    guess_u10,
+    depth,
+    wind_source_term_function,
+    tail_stress_parametrization_function,
+    dissipation_source_term_function,
+    parameters_generation,
+    parameters_dissipation,
+    spectral_grid,
+    time_derivative_spectrum,
+    direction_iteration,
+) -&gt; Tuple[float, float]:
+    &#34;&#34;&#34;
+
+    :param bulk_rate:
+    :param variance_density: The wave spectrum in m**2/Hz/deg
+    :param guess_u10:
+    :param depth:
+    :param parameters:
+    :param spectral_grid:
+    :param progress_bar:
+    :return:
+    &#34;&#34;&#34;
+
+    direction, bulk_rate = _bulk_dissipation_direction_point(
+        variance_density,
+        depth,
+        dissipation_source_term_function,
+        spectral_grid,
+        parameters_dissipation,
+    )
+
+    # Note dissipation is negatve- but our target bulk wind generation is positive
+    u10, direction = _u10_from_bulk_rate_point(
+        -bulk_rate,
+        variance_density,
+        guess_u10,
+        direction,
+        depth,
+        spectral_grid,
+        parameters_generation,
+        wind_source_term_function,
+        tail_stress_parametrization_function,
+        time_derivative_spectrum,
+        direction_iteration,
+    )
+    return u10, direction
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Functions for training (gradients with regard to parameter)
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@numba.jit(**numba_nocache)
+def _u10_parameter_gradient(
+    variance_density,
+    guess_u10,
+    depth,
+    wind_source_term_function,
+    tail_stress_parametrization_function,
+    dissipation_source_term_function,
+    grad_parameters,
+    parameters_generation,
+    parameters_dissipation,
+    spectral_grid,
+    time_derivative_spectrum,
+    direction_iteration,
+) -&gt; Tuple[float, float, np.typing.NDArray]:
+    &#34;&#34;&#34;
+    Function to numerically calculate gradients for the requested coeficients
+    :param bulk_rate:
+    :param variance_density: The wave spectrum in m**2/Hz/deg
+    :param guess_u10:
+    :param depth:
+    :param parameters:
+    :param spectral_grid:
+    :param progress_bar:
+    :return:
+    &#34;&#34;&#34;
+
+    # Calculate the zero point
+    direction, bulk_rate = _bulk_dissipation_direction_point(
+        variance_density,
+        depth,
+        dissipation_source_term_function,
+        spectral_grid,
+        parameters_dissipation,
+    )
+
+    # Note dissipation is negatve- but our target bulk wind generation is positive
+    u10, direction = _u10_from_bulk_rate_point(
+        -bulk_rate,
+        variance_density,
+        guess_u10,
+        direction,
+        depth,
+        spectral_grid,
+        parameters_generation,
+        wind_source_term_function,
+        tail_stress_parametrization_function,
+        time_derivative_spectrum,
+        direction_iteration,
+    )
+    grad = np.empty(len(grad_parameters))
+    if np.isnan(u10):
+        grad[:] = 0
+        return u10, direction, grad
+
+    for index, param in enumerate(grad_parameters):
+        perturbed_parameters_dissipation = parameters_dissipation.copy()
+        perturbed_parameters_generation = parameters_generation.copy()
+
+        if param in parameters_dissipation:
+            step = 0.05 * abs(perturbed_parameters_dissipation[param])
+            perturbed_parameters_dissipation[param] += step
+
+            dissipation = dissipation_source_term_function(
+                variance_density=variance_density,
+                depth=depth,
+                spectral_grid=spectral_grid,
+                parameters=perturbed_parameters_dissipation,
+            )
+
+            new_bulk_rate = numba_integrate_spectral_data(dissipation, spectral_grid)
+
+        else:
+            step = 0.05 * abs(perturbed_parameters_generation[param])
+            perturbed_parameters_generation[param] += step
+            new_bulk_rate = bulk_rate
+
+        new_u10, direction = _u10_from_bulk_rate_point(
+            -new_bulk_rate,
+            variance_density,
+            u10,
+            direction,
+            depth,
+            spectral_grid,
+            perturbed_parameters_generation,
+            wind_source_term_function,
+            tail_stress_parametrization_function,
+            time_derivative_spectrum,
+            direction_iteration,
+        )
+        if np.isnan(new_u10):
+            grad[index] = 0
+        else:
+            grad[index] = (new_u10 - u10) / step
+
+    return u10, direction, grad
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Apply to all spatial points
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+@numba.jit(**numba_nocache_parallel)
+def _u10_from_spectra_gradient(
+    variance_density,
+    guess_u10,
+    depth,
+    wind_source_term_function,
+    tail_stress_parametrization_function,
+    dissipation_source_term_function,
+    grad_parameters,
+    parameters_generation,
+    parameters_dissipation,
+    spectral_grid,
+    time_derivative_spectrum,
+    progress_bar: ProgressBar = None,
+    direction_iteration=False,
+) -&gt; Tuple[np.typing.NDArray, np.typing.NDArray, np.typing.NDArray]:
+    &#34;&#34;&#34;
+
+    :param variance_density:
+    :param guess_u10:
+    :param depth:
+    :param wind_source_term_function:
+    :param dissipation_source_term_function:
+    :param parameters_generation:
+    :param parameters_dissipation:
+    :param spectral_grid:
+    :param progress_bar:
+    :return:
+    &#34;&#34;&#34;
+    number_of_points = variance_density.shape[0]
+    u10 = np.empty((number_of_points))
+    direction = np.empty((number_of_points))
+    grad = np.empty((number_of_points, len(grad_parameters)))
+    for point_index in numba.prange(number_of_points):
+        if progress_bar is not None:
+            progress_bar.update(1)
+
+        (
+            u10[point_index],
+            direction[point_index],
+            grad[point_index, :],
+        ) = _u10_parameter_gradient(
+            variance_density[point_index, :, :],
+            guess_u10[point_index],
+            depth[point_index],
+            wind_source_term_function,
+            tail_stress_parametrization_function,
+            dissipation_source_term_function,
+            grad_parameters,
+            parameters_generation,
+            parameters_dissipation,
+            spectral_grid,
+            time_derivative_spectrum[point_index, :, :],
+            direction_iteration,
+        )
+    return u10, direction, grad
+
+
+@numba.jit(**numba_nocache_parallel)
+def _u10_from_spectra(
+    variance_density: np.typing.NDArray,
+    guess_u10: np.typing.NDArray,
+    depth: np.typing.NDArray,
+    wind_source_term_function,
+    tail_stress_parametrization_function,
+    dissipation_source_term_function,
+    parameters_generation,
+    parameters_dissipation,
+    spectral_grid,
+    progress_bar: ProgressBar = None,
+    time_derivative_spectrum=None,
+    direction_iteration=False,
+) -&gt; Tuple[np.typing.NDArray, np.typing.NDArray]:
+    &#34;&#34;&#34;
+
+    :param variance_density:
+    :param guess_u10:
+    :param depth:
+    :param wind_source_term_function:
+    :param dissipation_source_term_function:
+    :param parameters_generation:
+    :param parameters_dissipation:
+    :param spectral_grid:
+    :param progress_bar:
+    :return:
+    &#34;&#34;&#34;
+    number_of_points = variance_density.shape[0]
+    u10 = np.empty((number_of_points))
+    direction = np.empty((number_of_points))
+
+    for point_index in numba.prange(number_of_points):
+        if progress_bar is not None:
+            progress_bar.update(1)
+
+        u10[point_index], direction[point_index] = _u10_from_spectra_point(
+            variance_density[point_index, :, :],
+            guess_u10[point_index],
+            depth[point_index],
+            wind_source_term_function,
+            tail_stress_parametrization_function,
+            dissipation_source_term_function,
+            parameters_generation,
+            parameters_dissipation,
+            spectral_grid,
+            time_derivative_spectrum[point_index, :, :],
+            direction_iteration,
+        )
+    return u10, direction</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.wind_inversion.spectral_time_derivative_in_active_region"><code class="name flex">
+<span>def <span class="ident">spectral_time_derivative_in_active_region</span></span>(<span>time_derivative_spectrum: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], generation: numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]], spectral_grid)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@numba.jit(**numba_default)
+def spectral_time_derivative_in_active_region(
+    time_derivative_spectrum: np.typing.NDArray,
+    generation: np.typing.NDArray,
+    spectral_grid,
+):
+    frequency_step = spectral_grid[&#34;frequency_step&#34;]
+    direction_step = spectral_grid[&#34;direction_step&#34;]
+    number_of_directions = time_derivative_spectrum.shape[1]
+    number_of_frequencies = time_derivative_spectrum.shape[0]
+
+    bulk_time_derivative_spectrum = 0.0
+
+    for frequency_index in range(number_of_frequencies):
+        for direction_index in range(number_of_directions):
+            if generation[frequency_index, direction_index] &gt; 0.0:
+                bulk_time_derivative_spectrum += (
+                    time_derivative_spectrum[frequency_index, direction_index]
+                    * direction_step[direction_index]
+                    * frequency_step[frequency_index]
+                )
+    return bulk_time_derivative_spectrum</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.wind_inversion.windspeed_and_direction_from_spectra"><code class="name flex">
+<span>def <span class="ident">windspeed_and_direction_from_spectra</span></span>(<span>balance: <a title="ocean_science_utilities.wavephysics.balance.balance.SourceTermBalance" href="balance.html#ocean_science_utilities.wavephysics.balance.balance.SourceTermBalance">SourceTermBalance</a>, guess_u10: xarray.core.dataarray.DataArray, spectrum: <a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="../../wavespectra/spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a>, jacobian: bool = False, jacobian_parameters: Optional[List[str]] = None, time_derivative_spectrum: Optional[<a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="../../wavespectra/spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a>] = None, direction_iteration: bool = False) ‑> xarray.core.dataset.Dataset</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:param bulk_rate:
+:param guess_u10:
+:param guess_direction:
+:param spectrum:
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def windspeed_and_direction_from_spectra(
+    balance: SourceTermBalance,
+    guess_u10: xarray.DataArray,
+    spectrum: FrequencyDirectionSpectrum,
+    jacobian: bool = False,
+    jacobian_parameters: Optional[List[str]] = None,
+    time_derivative_spectrum: Optional[FrequencyDirectionSpectrum] = None,
+    direction_iteration: bool = False,
+) -&gt; xarray.Dataset:
+    &#34;&#34;&#34;
+
+    :param bulk_rate:
+    :param guess_u10:
+    :param guess_direction:
+    :param spectrum:
+    :return:
+    &#34;&#34;&#34;
+    disable = spectrum.number_of_spectra &lt; 100
+    if time_derivative_spectrum is None:
+        time_derivative_spectrum_values = np.zeros(spectrum.shape())
+    else:
+        time_derivative_spectrum_values = (
+            time_derivative_spectrum.variance_density.values
+        )
+
+    with ProgressBar(
+        total=spectrum.number_of_spectra,
+        disable=disable,
+        desc=f&#34;Estimating U10 from {balance.generation.name} &#34;
+        f&#34;and {balance.dissipation.name} wind and dissipation source terms&#34;,
+    ) as progress_bar:
+        if not jacobian:
+            speed, direction = _u10_from_spectra(
+                variance_density=spectrum.variance_density.values,
+                guess_u10=guess_u10.values,
+                depth=spectrum.depth.values,
+                wind_source_term_function=balance.generation._wind_source_term_function,
+                tail_stress_parametrization_function=(
+                    balance.generation._tail_stress_parametrization_function
+                ),
+                dissipation_source_term_function=(
+                    balance.dissipation._dissipation_function
+                ),
+                parameters_generation=balance.generation.parameters,
+                parameters_dissipation=balance.dissipation.parameters,
+                spectral_grid=balance.generation.spectral_grid(spectrum),
+                progress_bar=progress_bar,
+                time_derivative_spectrum=time_derivative_spectrum_values,
+                direction_iteration=direction_iteration,
+            )
+        else:
+            if jacobian_parameters is None:
+                raise ValueError(
+                    &#34;If gradients are requested a parameter list is required&#34;
+                )
+
+            speed, direction, grad = _u10_from_spectra_gradient(
+                variance_density=spectrum.variance_density.values,
+                guess_u10=guess_u10.values,
+                depth=spectrum.depth.values,
+                wind_source_term_function=balance.generation._wind_source_term_function,
+                tail_stress_parametrization_function=(
+                    balance.generation._tail_stress_parametrization_function
+                ),
+                dissipation_source_term_function=(
+                    balance.dissipation._dissipation_function
+                ),
+                grad_parameters=numba.typed.List(jacobian_parameters),
+                parameters_generation=balance.generation.parameters,
+                parameters_dissipation=balance.dissipation.parameters,
+                spectral_grid=balance.generation.spectral_grid(spectrum),
+                time_derivative_spectrum=time_derivative_spectrum,
+                progress_bar=progress_bar,
+                direction_iteration=direction_iteration,
+            )
+            grad = xarray.DataArray(data=grad)
+
+    u10 = xarray.DataArray(
+        data=speed,
+        dims=spectrum.dims_space_time,
+        coords=spectrum.coords_space_time,
+    )
+
+    direction = xarray.DataArray(
+        data=direction,
+        dims=spectrum.dims_space_time,
+        coords=spectrum.coords_space_time,
+    )
+
+    if jacobian:
+        return xarray.Dataset(
+            data_vars={&#34;u10&#34;: u10, &#34;direction&#34;: direction, &#34;jacobian&#34;: grad}
+        )
+    else:
+        return xarray.Dataset(data_vars={&#34;u10&#34;: u10, &#34;direction&#34;: direction})</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ocean_science_utilities.wavephysics.balance" href="index.html">ocean_science_utilities.wavephysics.balance</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.wind_inversion.spectral_time_derivative_in_active_region" href="#ocean_science_utilities.wavephysics.balance.wind_inversion.spectral_time_derivative_in_active_region">spectral_time_derivative_in_active_region</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.wind_inversion.windspeed_and_direction_from_spectra" href="#ocean_science_utilities.wavephysics.balance.wind_inversion.windspeed_and_direction_from_spectra">windspeed_and_direction_from_spectra</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

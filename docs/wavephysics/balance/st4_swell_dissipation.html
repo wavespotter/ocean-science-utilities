@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>ocean_science_utilities.wavephysics.balance.st4_swell_dissipation API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ocean_science_utilities.wavephysics.balance.st4_swell_dissipation</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import xarray
+
+from scipy.special import kelvin  # type: ignore
+from typing import Any, Dict, Optional
+
+from ocean_science_utilities.wavephysics.fluidproperties import (
+    AIR,
+    WATER,
+    FluidProperties,
+    GRAVITATIONAL_ACCELERATION,
+)
+from ocean_science_utilities.wavephysics.balance.generation import (
+    WindGeneration,
+    TWindInputType,
+)
+from ocean_science_utilities.wavespectra.operations import integrate_spectral_data
+from ocean_science_utilities.wavespectra.spectrum import (
+    FrequencyDirectionSpectrum,
+    SPECTRAL_DIMS,
+)
+
+
+class SwellDissipation(WindGeneration):
+    def __init__(
+        self,
+        gravitational_acceleration: float = GRAVITATIONAL_ACCELERATION,
+        swell_dissipation_coefficients: Optional[Dict[str, float]] = None,
+        **kwargs,
+    ):
+        super(WindGeneration, self).__init__(**kwargs)
+        self.gravitational_acceleration = gravitational_acceleration
+        if swell_dissipation_coefficients is None:
+            swell_dissipation_coefficients = {
+                &#34;s0&#34;: 3,
+                &#34;s1&#34;: 0.8,
+                &#34;s2&#34;: -0.018,
+                &#34;s3&#34;: 0.015,
+                &#34;rz0&#34;: 0.04,
+                &#34;laminar_coeficient_cds&#34;: 1.2,
+                &#34;dimensional_critical_reynolds_number&#34;: 2e5,
+            }
+        self.swell_dissipation_coefficients = swell_dissipation_coefficients
+
+    def rate(  # type: ignore
+        self,
+        spectrum: FrequencyDirectionSpectrum,
+        speed: xarray.DataArray,
+        direction: xarray.DataArray,
+        roughness_length: xarray.DataArray,
+        wind_speed_input_type: TWindInputType = &#34;u10&#34;,
+        air: FluidProperties = AIR,
+        water: FluidProperties = WATER,
+        memoized: Optional[Dict[str, Any]] = None,
+    ) -&gt; xarray.DataArray:
+        if wind_speed_input_type == &#34;u10&#34;:
+            return self.rate_U10(
+                speed, direction, spectrum, roughness_length, air, water, memoized
+            )
+
+        elif wind_speed_input_type in [&#34;ustar&#34;, &#34;friction_velocity&#34;]:
+            return self.rate_friction_velocity(
+                speed, direction, spectrum, roughness_length, air, water, memoized
+            )
+
+        else:
+            raise ValueError(
+                f&#34;Unknown input type {wind_speed_input_type}, &#34;
+                f&#34;has to be one of: &#39;u10&#39;,&#39;friction_velocity&#39;,&#39;ustar&#39;&#34;
+            )
+
+    def rate_U10(
+        self,
+        speed: xarray.DataArray,
+        direction: xarray.DataArray,
+        spectrum: FrequencyDirectionSpectrum,
+        roughness_length: xarray.DataArray,
+        air: FluidProperties = AIR,
+        water: FluidProperties = WATER,
+        memoized: Optional[Dict[str, Any]] = None,
+    ) -&gt; xarray.DataArray:
+        friction_velocity = (
+            air.vonkarman_constant * speed / np.log(10 / roughness_length)
+        )
+        return self.rate_friction_velocity(
+            xarray.DataArray(friction_velocity),
+            direction,
+            spectrum,
+            roughness_length,
+            air,
+            water,
+            memoized,
+        )
+
+    def rate_friction_velocity(
+        self,
+        speed: xarray.DataArray,
+        direction: xarray.DataArray,
+        spectrum: FrequencyDirectionSpectrum,
+        roughness_length: xarray.DataArray,
+        air: FluidProperties = AIR,
+        water: FluidProperties = WATER,
+        memoized: Optional[Dict[str, Any]] = None,
+    ) -&gt; xarray.DataArray:
+        memoized = memoized if memoized is not None else {}
+        if &#34;wave_speed&#34; not in memoized:
+            memoized[&#34;wave_speed&#34;] = spectrum.wave_speed()
+
+        if &#34;wavenumber&#34; not in memoized:
+            memoized[&#34;wavenumber&#34;] = spectrum.wavenumber
+
+        if &#34;significant_wave_height&#34; not in memoized:
+            memoized[&#34;significant_wave_height&#34;] = spectrum.significant_waveheight
+
+        if &#34;significant_orbital_velocity&#34; not in memoized:
+            memoized[&#34;significant_orbital_velocity&#34;] = st4_significant_orbital_velocity(
+                spectrum.variance_density,
+                spectrum.radian_frequency,
+                memoized[&#34;wavenumber&#34;],
+                spectrum.depth,
+            )
+
+        if &#34;wave_reynolds_number&#34; not in memoized:
+            memoized[&#34;wave_reynolds_number&#34;] = st4_wave_reynolds_number(
+                memoized[&#34;significant_orbital_velocity&#34;],
+                memoized[&#34;significant_wave_height&#34;] / 2,
+                air,
+            )
+
+        if &#34;mutual_angle&#34; not in memoized:
+            memoized[&#34;mutual_angle&#34;] = (
+                ((spectrum.direction - direction + 180.0) % 360.0 - 180.0) * np.pi / 180
+            )
+
+        critical_wave_reynolds_number = st4_crictical_reynolds_number(
+            self.swell_dissipation_coefficients, memoized[&#34;significant_wave_height&#34;]
+        )
+
+        swell_dissipation = st4_swell_dissipation(
+            speed,
+            memoized[&#34;mutual_angle&#34;],
+            spectrum.variance_density,
+            roughness_length,
+            memoized[&#34;significant_wave_height&#34;] / 2,
+            memoized[&#34;wave_reynolds_number&#34;],
+            critical_wave_reynolds_number,
+            memoized[&#34;wavenumber&#34;],
+            spectrum.radian_frequency,
+            memoized[&#34;significant_orbital_velocity&#34;],
+            self.swell_dissipation_coefficients,
+            self.gravitational_acceleration,
+            air,
+            water,
+        )
+        return swell_dissipation
+
+
+def st4_wave_reynolds_number(
+    significant_orbital_velocity: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    air: FluidProperties = AIR,
+) -&gt; xarray.DataArray:
+    return (
+        4
+        * significant_orbital_velocity
+        * significant_amplitude
+        / air.kinematic_viscosity
+    )
+
+
+def st4_significant_orbital_velocity(
+    variance_density: xarray.DataArray,
+    radian_frequency: xarray.DataArray,
+    wavenumber: xarray.DataArray,
+    depth: xarray.DataArray,
+) -&gt; xarray.DataArray:
+    return xarray.DataArray(
+        2
+        * np.sqrt(
+            integrate_spectral_data(
+                variance_density * radian_frequency**2 * np.tanh(wavenumber * depth),
+                dims=SPECTRAL_DIMS,
+            )
+        )
+    )
+
+
+def st4_crictical_reynolds_number(
+    swell_dissipation_coefficients: Dict[str, float],
+    significant_wave_height: xarray.DataArray,
+) -&gt; xarray.DataArray:
+    return (
+        swell_dissipation_coefficients[&#34;dimensional_critical_reynolds_number&#34;]
+        / significant_wave_height
+    )
+
+
+def st4_swell_dissipation(
+    speed: xarray.DataArray,
+    mutual_angle: xarray.DataArray,
+    variance_density: xarray.DataArray,
+    roughness: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    wave_reynolds_number: xarray.DataArray,
+    critical_reynolds_number: xarray.DataArray,
+    wavenumber: xarray.DataArray,
+    angular_frequency: xarray.DataArray,
+    significant_orbital_velocity: xarray.DataArray,
+    swell_dissipation_coefficients: Dict[str, float],
+    gravitational_acceleration: float,
+    air: FluidProperties = AIR,
+    water: FluidProperties = WATER,
+) -&gt; xarray.DataArray:
+    ratio = air.density / water.density
+
+    criterion = wave_reynolds_number &lt;= critical_reynolds_number
+    laminar_coeficient = swell_dissipation_coefficients[&#34;laminar_coeficient_cds&#34;]
+    laminar = -(
+        laminar_coeficient
+        * ratio
+        * 2
+        * wavenumber
+        * np.sqrt(2 * angular_frequency * air.kinematic_viscosity)
+    )
+
+    swell_dissipation_factor = st4_swell_dissipation_factor(
+        speed,
+        significant_orbital_velocity,
+        roughness,
+        significant_amplitude,
+        mutual_angle,
+        swell_dissipation_coefficients,
+        water,
+    )
+
+    turbulent = -(
+        ratio
+        * 16
+        * swell_dissipation_factor
+        * angular_frequency**2
+        * significant_orbital_velocity
+        / gravitational_acceleration
+    )
+
+    return xarray.where(criterion, laminar, turbulent) * variance_density
+
+
+def st4_swell_dissipation_factor(
+    speed: xarray.DataArray,
+    significant_orbital_velocity: xarray.DataArray,
+    roughness: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    mutual_angle: xarray.DataArray,
+    swell_dissipation_coefficients: Dict[str, float],
+    water: FluidProperties,
+) -&gt; xarray.DataArray:
+    dissipation_factor_grant_maddsen = st4_dissipation_factor_grant_maddsen(
+        roughness, significant_amplitude, swell_dissipation_coefficients, water
+    )
+
+    return swell_dissipation_coefficients[&#34;s1&#34;] * (
+        dissipation_factor_grant_maddsen
+        + (
+            swell_dissipation_coefficients[&#34;s3&#34;]
+            + swell_dissipation_coefficients[&#34;s2&#34;] * np.cos(mutual_angle)
+        )
+        * speed
+        / significant_orbital_velocity
+    )
+
+
+def st4_dissipation_factor_grant_maddsen(
+    roughness: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    swell_dissipation_coefficients: Dict[str, float],
+    water: FluidProperties = WATER,
+) -&gt; xarray.DataArray:
+    dimensionless_roughness = (
+        swell_dissipation_coefficients[&#34;rz0&#34;] * roughness / significant_amplitude
+    )
+
+    kel = kelvin(2 * np.sqrt(dimensionless_roughness))[1]
+    return water.vonkarman_constant**2 / (abs(kel) ** 2 * 2)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_crictical_reynolds_number"><code class="name flex">
+<span>def <span class="ident">st4_crictical_reynolds_number</span></span>(<span>swell_dissipation_coefficients: Dict[str, float], significant_wave_height: xarray.core.dataarray.DataArray) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def st4_crictical_reynolds_number(
+    swell_dissipation_coefficients: Dict[str, float],
+    significant_wave_height: xarray.DataArray,
+) -&gt; xarray.DataArray:
+    return (
+        swell_dissipation_coefficients[&#34;dimensional_critical_reynolds_number&#34;]
+        / significant_wave_height
+    )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_dissipation_factor_grant_maddsen"><code class="name flex">
+<span>def <span class="ident">st4_dissipation_factor_grant_maddsen</span></span>(<span>roughness: xarray.core.dataarray.DataArray, significant_amplitude: xarray.core.dataarray.DataArray, swell_dissipation_coefficients: Dict[str, float], water: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def st4_dissipation_factor_grant_maddsen(
+    roughness: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    swell_dissipation_coefficients: Dict[str, float],
+    water: FluidProperties = WATER,
+) -&gt; xarray.DataArray:
+    dimensionless_roughness = (
+        swell_dissipation_coefficients[&#34;rz0&#34;] * roughness / significant_amplitude
+    )
+
+    kel = kelvin(2 * np.sqrt(dimensionless_roughness))[1]
+    return water.vonkarman_constant**2 / (abs(kel) ** 2 * 2)</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_significant_orbital_velocity"><code class="name flex">
+<span>def <span class="ident">st4_significant_orbital_velocity</span></span>(<span>variance_density: xarray.core.dataarray.DataArray, radian_frequency: xarray.core.dataarray.DataArray, wavenumber: xarray.core.dataarray.DataArray, depth: xarray.core.dataarray.DataArray) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def st4_significant_orbital_velocity(
+    variance_density: xarray.DataArray,
+    radian_frequency: xarray.DataArray,
+    wavenumber: xarray.DataArray,
+    depth: xarray.DataArray,
+) -&gt; xarray.DataArray:
+    return xarray.DataArray(
+        2
+        * np.sqrt(
+            integrate_spectral_data(
+                variance_density * radian_frequency**2 * np.tanh(wavenumber * depth),
+                dims=SPECTRAL_DIMS,
+            )
+        )
+    )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_swell_dissipation"><code class="name flex">
+<span>def <span class="ident">st4_swell_dissipation</span></span>(<span>speed: xarray.core.dataarray.DataArray, mutual_angle: xarray.core.dataarray.DataArray, variance_density: xarray.core.dataarray.DataArray, roughness: xarray.core.dataarray.DataArray, significant_amplitude: xarray.core.dataarray.DataArray, wave_reynolds_number: xarray.core.dataarray.DataArray, critical_reynolds_number: xarray.core.dataarray.DataArray, wavenumber: xarray.core.dataarray.DataArray, angular_frequency: xarray.core.dataarray.DataArray, significant_orbital_velocity: xarray.core.dataarray.DataArray, swell_dissipation_coefficients: Dict[str, float], gravitational_acceleration: float, air: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, water: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def st4_swell_dissipation(
+    speed: xarray.DataArray,
+    mutual_angle: xarray.DataArray,
+    variance_density: xarray.DataArray,
+    roughness: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    wave_reynolds_number: xarray.DataArray,
+    critical_reynolds_number: xarray.DataArray,
+    wavenumber: xarray.DataArray,
+    angular_frequency: xarray.DataArray,
+    significant_orbital_velocity: xarray.DataArray,
+    swell_dissipation_coefficients: Dict[str, float],
+    gravitational_acceleration: float,
+    air: FluidProperties = AIR,
+    water: FluidProperties = WATER,
+) -&gt; xarray.DataArray:
+    ratio = air.density / water.density
+
+    criterion = wave_reynolds_number &lt;= critical_reynolds_number
+    laminar_coeficient = swell_dissipation_coefficients[&#34;laminar_coeficient_cds&#34;]
+    laminar = -(
+        laminar_coeficient
+        * ratio
+        * 2
+        * wavenumber
+        * np.sqrt(2 * angular_frequency * air.kinematic_viscosity)
+    )
+
+    swell_dissipation_factor = st4_swell_dissipation_factor(
+        speed,
+        significant_orbital_velocity,
+        roughness,
+        significant_amplitude,
+        mutual_angle,
+        swell_dissipation_coefficients,
+        water,
+    )
+
+    turbulent = -(
+        ratio
+        * 16
+        * swell_dissipation_factor
+        * angular_frequency**2
+        * significant_orbital_velocity
+        / gravitational_acceleration
+    )
+
+    return xarray.where(criterion, laminar, turbulent) * variance_density</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_swell_dissipation_factor"><code class="name flex">
+<span>def <span class="ident">st4_swell_dissipation_factor</span></span>(<span>speed: xarray.core.dataarray.DataArray, significant_orbital_velocity: xarray.core.dataarray.DataArray, roughness: xarray.core.dataarray.DataArray, significant_amplitude: xarray.core.dataarray.DataArray, mutual_angle: xarray.core.dataarray.DataArray, swell_dissipation_coefficients: Dict[str, float], water: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a>) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def st4_swell_dissipation_factor(
+    speed: xarray.DataArray,
+    significant_orbital_velocity: xarray.DataArray,
+    roughness: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    mutual_angle: xarray.DataArray,
+    swell_dissipation_coefficients: Dict[str, float],
+    water: FluidProperties,
+) -&gt; xarray.DataArray:
+    dissipation_factor_grant_maddsen = st4_dissipation_factor_grant_maddsen(
+        roughness, significant_amplitude, swell_dissipation_coefficients, water
+    )
+
+    return swell_dissipation_coefficients[&#34;s1&#34;] * (
+        dissipation_factor_grant_maddsen
+        + (
+            swell_dissipation_coefficients[&#34;s3&#34;]
+            + swell_dissipation_coefficients[&#34;s2&#34;] * np.cos(mutual_angle)
+        )
+        * speed
+        / significant_orbital_velocity
+    )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_wave_reynolds_number"><code class="name flex">
+<span>def <span class="ident">st4_wave_reynolds_number</span></span>(<span>significant_orbital_velocity: xarray.core.dataarray.DataArray, significant_amplitude: xarray.core.dataarray.DataArray, air: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def st4_wave_reynolds_number(
+    significant_orbital_velocity: xarray.DataArray,
+    significant_amplitude: xarray.DataArray,
+    air: FluidProperties = AIR,
+) -&gt; xarray.DataArray:
+    return (
+        4
+        * significant_orbital_velocity
+        * significant_amplitude
+        / air.kinematic_viscosity
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation"><code class="flex name class">
+<span>class <span class="ident">SwellDissipation</span></span>
+<span>(</span><span>gravitational_acceleration: float = 9.81, swell_dissipation_coefficients: Optional[Dict[str, float]] = None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SwellDissipation(WindGeneration):
+    def __init__(
+        self,
+        gravitational_acceleration: float = GRAVITATIONAL_ACCELERATION,
+        swell_dissipation_coefficients: Optional[Dict[str, float]] = None,
+        **kwargs,
+    ):
+        super(WindGeneration, self).__init__(**kwargs)
+        self.gravitational_acceleration = gravitational_acceleration
+        if swell_dissipation_coefficients is None:
+            swell_dissipation_coefficients = {
+                &#34;s0&#34;: 3,
+                &#34;s1&#34;: 0.8,
+                &#34;s2&#34;: -0.018,
+                &#34;s3&#34;: 0.015,
+                &#34;rz0&#34;: 0.04,
+                &#34;laminar_coeficient_cds&#34;: 1.2,
+                &#34;dimensional_critical_reynolds_number&#34;: 2e5,
+            }
+        self.swell_dissipation_coefficients = swell_dissipation_coefficients
+
+    def rate(  # type: ignore
+        self,
+        spectrum: FrequencyDirectionSpectrum,
+        speed: xarray.DataArray,
+        direction: xarray.DataArray,
+        roughness_length: xarray.DataArray,
+        wind_speed_input_type: TWindInputType = &#34;u10&#34;,
+        air: FluidProperties = AIR,
+        water: FluidProperties = WATER,
+        memoized: Optional[Dict[str, Any]] = None,
+    ) -&gt; xarray.DataArray:
+        if wind_speed_input_type == &#34;u10&#34;:
+            return self.rate_U10(
+                speed, direction, spectrum, roughness_length, air, water, memoized
+            )
+
+        elif wind_speed_input_type in [&#34;ustar&#34;, &#34;friction_velocity&#34;]:
+            return self.rate_friction_velocity(
+                speed, direction, spectrum, roughness_length, air, water, memoized
+            )
+
+        else:
+            raise ValueError(
+                f&#34;Unknown input type {wind_speed_input_type}, &#34;
+                f&#34;has to be one of: &#39;u10&#39;,&#39;friction_velocity&#39;,&#39;ustar&#39;&#34;
+            )
+
+    def rate_U10(
+        self,
+        speed: xarray.DataArray,
+        direction: xarray.DataArray,
+        spectrum: FrequencyDirectionSpectrum,
+        roughness_length: xarray.DataArray,
+        air: FluidProperties = AIR,
+        water: FluidProperties = WATER,
+        memoized: Optional[Dict[str, Any]] = None,
+    ) -&gt; xarray.DataArray:
+        friction_velocity = (
+            air.vonkarman_constant * speed / np.log(10 / roughness_length)
+        )
+        return self.rate_friction_velocity(
+            xarray.DataArray(friction_velocity),
+            direction,
+            spectrum,
+            roughness_length,
+            air,
+            water,
+            memoized,
+        )
+
+    def rate_friction_velocity(
+        self,
+        speed: xarray.DataArray,
+        direction: xarray.DataArray,
+        spectrum: FrequencyDirectionSpectrum,
+        roughness_length: xarray.DataArray,
+        air: FluidProperties = AIR,
+        water: FluidProperties = WATER,
+        memoized: Optional[Dict[str, Any]] = None,
+    ) -&gt; xarray.DataArray:
+        memoized = memoized if memoized is not None else {}
+        if &#34;wave_speed&#34; not in memoized:
+            memoized[&#34;wave_speed&#34;] = spectrum.wave_speed()
+
+        if &#34;wavenumber&#34; not in memoized:
+            memoized[&#34;wavenumber&#34;] = spectrum.wavenumber
+
+        if &#34;significant_wave_height&#34; not in memoized:
+            memoized[&#34;significant_wave_height&#34;] = spectrum.significant_waveheight
+
+        if &#34;significant_orbital_velocity&#34; not in memoized:
+            memoized[&#34;significant_orbital_velocity&#34;] = st4_significant_orbital_velocity(
+                spectrum.variance_density,
+                spectrum.radian_frequency,
+                memoized[&#34;wavenumber&#34;],
+                spectrum.depth,
+            )
+
+        if &#34;wave_reynolds_number&#34; not in memoized:
+            memoized[&#34;wave_reynolds_number&#34;] = st4_wave_reynolds_number(
+                memoized[&#34;significant_orbital_velocity&#34;],
+                memoized[&#34;significant_wave_height&#34;] / 2,
+                air,
+            )
+
+        if &#34;mutual_angle&#34; not in memoized:
+            memoized[&#34;mutual_angle&#34;] = (
+                ((spectrum.direction - direction + 180.0) % 360.0 - 180.0) * np.pi / 180
+            )
+
+        critical_wave_reynolds_number = st4_crictical_reynolds_number(
+            self.swell_dissipation_coefficients, memoized[&#34;significant_wave_height&#34;]
+        )
+
+        swell_dissipation = st4_swell_dissipation(
+            speed,
+            memoized[&#34;mutual_angle&#34;],
+            spectrum.variance_density,
+            roughness_length,
+            memoized[&#34;significant_wave_height&#34;] / 2,
+            memoized[&#34;wave_reynolds_number&#34;],
+            critical_wave_reynolds_number,
+            memoized[&#34;wavenumber&#34;],
+            spectrum.radian_frequency,
+            memoized[&#34;significant_orbital_velocity&#34;],
+            self.swell_dissipation_coefficients,
+            self.gravitational_acceleration,
+            air,
+            water,
+        )
+        return swell_dissipation</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ocean_science_utilities.wavephysics.balance.generation.WindGeneration" href="generation.html#ocean_science_utilities.wavephysics.balance.generation.WindGeneration">WindGeneration</a></li>
+<li><a title="ocean_science_utilities.wavephysics.balance.source_term.SourceTerm" href="source_term.html#ocean_science_utilities.wavephysics.balance.source_term.SourceTerm">SourceTerm</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate"><code class="name flex">
+<span>def <span class="ident">rate</span></span>(<span>self, spectrum: <a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="../../wavespectra/spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a>, speed: xarray.core.dataarray.DataArray, direction: xarray.core.dataarray.DataArray, roughness_length: xarray.core.dataarray.DataArray, wind_speed_input_type: Literal['u10', 'friction_velocity', 'ustar'] = 'u10', air: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, water: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, memoized: Optional[Dict[str, Any]] = None) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rate(  # type: ignore
+    self,
+    spectrum: FrequencyDirectionSpectrum,
+    speed: xarray.DataArray,
+    direction: xarray.DataArray,
+    roughness_length: xarray.DataArray,
+    wind_speed_input_type: TWindInputType = &#34;u10&#34;,
+    air: FluidProperties = AIR,
+    water: FluidProperties = WATER,
+    memoized: Optional[Dict[str, Any]] = None,
+) -&gt; xarray.DataArray:
+    if wind_speed_input_type == &#34;u10&#34;:
+        return self.rate_U10(
+            speed, direction, spectrum, roughness_length, air, water, memoized
+        )
+
+    elif wind_speed_input_type in [&#34;ustar&#34;, &#34;friction_velocity&#34;]:
+        return self.rate_friction_velocity(
+            speed, direction, spectrum, roughness_length, air, water, memoized
+        )
+
+    else:
+        raise ValueError(
+            f&#34;Unknown input type {wind_speed_input_type}, &#34;
+            f&#34;has to be one of: &#39;u10&#39;,&#39;friction_velocity&#39;,&#39;ustar&#39;&#34;
+        )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate_U10"><code class="name flex">
+<span>def <span class="ident">rate_U10</span></span>(<span>self, speed: xarray.core.dataarray.DataArray, direction: xarray.core.dataarray.DataArray, spectrum: <a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="../../wavespectra/spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a>, roughness_length: xarray.core.dataarray.DataArray, air: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, water: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, memoized: Optional[Dict[str, Any]] = None) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rate_U10(
+    self,
+    speed: xarray.DataArray,
+    direction: xarray.DataArray,
+    spectrum: FrequencyDirectionSpectrum,
+    roughness_length: xarray.DataArray,
+    air: FluidProperties = AIR,
+    water: FluidProperties = WATER,
+    memoized: Optional[Dict[str, Any]] = None,
+) -&gt; xarray.DataArray:
+    friction_velocity = (
+        air.vonkarman_constant * speed / np.log(10 / roughness_length)
+    )
+    return self.rate_friction_velocity(
+        xarray.DataArray(friction_velocity),
+        direction,
+        spectrum,
+        roughness_length,
+        air,
+        water,
+        memoized,
+    )</code></pre>
+</details>
+</dd>
+<dt id="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate_friction_velocity"><code class="name flex">
+<span>def <span class="ident">rate_friction_velocity</span></span>(<span>self, speed: xarray.core.dataarray.DataArray, direction: xarray.core.dataarray.DataArray, spectrum: <a title="ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum" href="../../wavespectra/spectrum.html#ocean_science_utilities.wavespectra.spectrum.FrequencyDirectionSpectrum">FrequencyDirectionSpectrum</a>, roughness_length: xarray.core.dataarray.DataArray, air: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, water: <a title="ocean_science_utilities.wavephysics.fluidproperties.FluidProperties" href="../fluidproperties.html#ocean_science_utilities.wavephysics.fluidproperties.FluidProperties">FluidProperties</a> = &lt;ocean_science_utilities.wavephysics.fluidproperties.FluidProperties object&gt;, memoized: Optional[Dict[str, Any]] = None) ‑> xarray.core.dataarray.DataArray</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rate_friction_velocity(
+    self,
+    speed: xarray.DataArray,
+    direction: xarray.DataArray,
+    spectrum: FrequencyDirectionSpectrum,
+    roughness_length: xarray.DataArray,
+    air: FluidProperties = AIR,
+    water: FluidProperties = WATER,
+    memoized: Optional[Dict[str, Any]] = None,
+) -&gt; xarray.DataArray:
+    memoized = memoized if memoized is not None else {}
+    if &#34;wave_speed&#34; not in memoized:
+        memoized[&#34;wave_speed&#34;] = spectrum.wave_speed()
+
+    if &#34;wavenumber&#34; not in memoized:
+        memoized[&#34;wavenumber&#34;] = spectrum.wavenumber
+
+    if &#34;significant_wave_height&#34; not in memoized:
+        memoized[&#34;significant_wave_height&#34;] = spectrum.significant_waveheight
+
+    if &#34;significant_orbital_velocity&#34; not in memoized:
+        memoized[&#34;significant_orbital_velocity&#34;] = st4_significant_orbital_velocity(
+            spectrum.variance_density,
+            spectrum.radian_frequency,
+            memoized[&#34;wavenumber&#34;],
+            spectrum.depth,
+        )
+
+    if &#34;wave_reynolds_number&#34; not in memoized:
+        memoized[&#34;wave_reynolds_number&#34;] = st4_wave_reynolds_number(
+            memoized[&#34;significant_orbital_velocity&#34;],
+            memoized[&#34;significant_wave_height&#34;] / 2,
+            air,
+        )
+
+    if &#34;mutual_angle&#34; not in memoized:
+        memoized[&#34;mutual_angle&#34;] = (
+            ((spectrum.direction - direction + 180.0) % 360.0 - 180.0) * np.pi / 180
+        )
+
+    critical_wave_reynolds_number = st4_crictical_reynolds_number(
+        self.swell_dissipation_coefficients, memoized[&#34;significant_wave_height&#34;]
+    )
+
+    swell_dissipation = st4_swell_dissipation(
+        speed,
+        memoized[&#34;mutual_angle&#34;],
+        spectrum.variance_density,
+        roughness_length,
+        memoized[&#34;significant_wave_height&#34;] / 2,
+        memoized[&#34;wave_reynolds_number&#34;],
+        critical_wave_reynolds_number,
+        memoized[&#34;wavenumber&#34;],
+        spectrum.radian_frequency,
+        memoized[&#34;significant_orbital_velocity&#34;],
+        self.swell_dissipation_coefficients,
+        self.gravitational_acceleration,
+        air,
+        water,
+    )
+    return swell_dissipation</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ocean_science_utilities.wavephysics.balance" href="index.html">ocean_science_utilities.wavephysics.balance</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_crictical_reynolds_number" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_crictical_reynolds_number">st4_crictical_reynolds_number</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_dissipation_factor_grant_maddsen" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_dissipation_factor_grant_maddsen">st4_dissipation_factor_grant_maddsen</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_significant_orbital_velocity" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_significant_orbital_velocity">st4_significant_orbital_velocity</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_swell_dissipation" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_swell_dissipation">st4_swell_dissipation</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_swell_dissipation_factor" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_swell_dissipation_factor">st4_swell_dissipation_factor</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_wave_reynolds_number" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.st4_wave_reynolds_number">st4_wave_reynolds_number</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation">SwellDissipation</a></code></h4>
+<ul class="">
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate">rate</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate_U10" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate_U10">rate_U10</a></code></li>
+<li><code><a title="ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate_friction_velocity" href="#ocean_science_utilities.wavephysics.balance.st4_swell_dissipation.SwellDissipation.rate_friction_velocity">rate_friction_velocity</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
