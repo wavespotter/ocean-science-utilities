@@ -9,3 +9,5 @@ mkdir -p $doc_directory/md
 pdoc src/ocean_science_utilities -o $doc_directory/html --html
 pdoc src/ocean_science_utilities -o $doc_directory/md
 pdoc src/ocean_science_utilities --pdf > $doc_directory/README.md
+
+cp -r docs/$OSU_VERSION/html/ocean_science_utilities/* docs/
