@@ -41,18 +41,18 @@ class ST4WindInput(WindGeneration):
         self._tail_stress_parametrization_function = tail_stress_parametrization_wam
 
     @staticmethod
-    def default_parameters() -> ST4WaveGenerationParameters:
+    def default_parameters() -> ST4WaveGenerationParameters:  # type: ignore
         return ST4WaveGenerationParameters(
             wave_age_tuning_parameter=0.006,
             growth_parameter_betamax=1.52,
             gravitational_acceleration=GRAVITATIONAL_ACCELERATION,
             charnock_maximum_roughness=np.inf,
             charnock_constant=0.01,
-            air_density=AIR.density,
-            water_density=WATER.density,
-            vonkarman_constant=AIR.vonkarman_constant,
+            air_density=AIR.density,  # type: ignore
+            water_density=WATER.density,  # type: ignore
+            vonkarman_constant=AIR.vonkarman_constant,  # type: ignore
             elevation=10,
-            air_viscosity=AIR.kinematic_viscosity,
+            air_viscosity=AIR.kinematic_viscosity,  # type: ignore
             viscous_stress_parameter=0.0,
         )
 

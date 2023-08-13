@@ -31,7 +31,7 @@ class SourceTerm(ABC):
     def default_parameters() -> MutableMapping:
         return {}
 
-    @parameters.setter
+    @parameters.setter  # type: ignore
     def parameters(self, parameters):
         self._parameters = parameters
 

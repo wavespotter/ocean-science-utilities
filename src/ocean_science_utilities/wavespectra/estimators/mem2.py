@@ -469,7 +469,7 @@ def mem2_newton_solver(
                 # magnitude. We will decrease the step size we take - but keep the
                 # direction of the step the same.
                 inverse_relative_update = magnitude_current_iterate / magnitude_update
-                line_search_factor = min(
+                line_search_factor = min(  # type: ignore
                     inverse_relative_update, line_search_factor / 2
                 )
         else:

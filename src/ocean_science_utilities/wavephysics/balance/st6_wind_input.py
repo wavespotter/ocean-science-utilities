@@ -40,14 +40,14 @@ class ST6WindInput(WindGeneration):
         self._wind_source_term_function = _st6_wind_generation_point
 
     @staticmethod
-    def default_parameters() -> ST6WaveGenerationParameters:
+    def default_parameters() -> ST6WaveGenerationParameters:  # type: ignore
         return ST6WaveGenerationParameters(
             gravitational_acceleration=GRAVITATIONAL_ACCELERATION,
             charnock_maximum_roughness=np.inf,
             charnock_constant=0.015,
-            air_density=AIR.density,
-            water_density=WATER.density,
-            vonkarman_constant=AIR.vonkarman_constant,
+            air_density=AIR.density,  # type: ignore
+            water_density=WATER.density,  # type: ignore
+            vonkarman_constant=AIR.vonkarman_constant,  # type: ignore
             friction_velocity_scaling=28,
             elevation=10,
         )

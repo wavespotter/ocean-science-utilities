@@ -1,4 +1,4 @@
-import numba
+import numba  # type: ignore
 import numpy as np
 
 from ocean_science_utilities.wavephysics.balance.solvers import numba_newton_raphson
@@ -32,7 +32,6 @@ def log_dimensionless_critical_height(
     )
 
 
-
 @numba.njit()
 def integrate_tail_frequency_distribution(
     lower_bound, effective_charnock, vonkarman_constant, wave_age_tuning_parameter
@@ -47,10 +46,11 @@ def integrate_tail_frequency_distribution(
     Y = u_* / wavespeed
     Z = charnock * Y**2 * np.exp( vonkarman_constant / ( Y + wave_age_tuning_parameter)
 
-    The boundaries of the integral are defined as the point where the critical height is at the surface
-    (Y=1) and the point where Z >= 1 ( Y = Y0).
+    The boundaries of the integral are defined as the point where the critical height
+    is at the surface (Y=1) and the point where Z >= 1 ( Y = Y0).
 
-    We follow section 5 in the WAM documentation (see below). And introduce x = np.log(Y)
+    We follow section 5 in the WAM documentation (see below). And introduce
+    x = np.log(Y)
 
     so that we integrate in effect over
 
@@ -84,7 +84,8 @@ def integrate_tail_frequency_distribution(
     if x0 > 0.0:
         return 0.0
 
-    # Define the stepsize of the integration. Since the upper boundary is 0, this is merely the start
+    # Define the stepsize of the integration. Since the upper boundary is 0, this
+    # is merely the start.
     stepsize = -x0 / 4
 
     # We use Boole's rule for integration.

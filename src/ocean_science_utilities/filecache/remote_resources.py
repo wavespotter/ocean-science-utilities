@@ -74,7 +74,7 @@ class RemoteResourceHTTPS(RemoteResource):
                 response = requests.api.get(uri, allow_redirects=True)
                 status_code = response.status_code
                 response.raise_for_status()
-            except requests.execptions.HTTPError as _:
+            except requests.execptions.HTTPError as _:  # type: ignore # noqa: F841
                 raise _RemoteResourceUriNotFound(
                     f"Error downloading from: {uri}, "
                     f"http status code: {status_code},"

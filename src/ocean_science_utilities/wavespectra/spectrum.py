@@ -10,6 +10,7 @@ from typing import (
     Mapping,
     Optional,
     Union,
+    TypeVar,
 )
 from warnings import warn
 
@@ -63,6 +64,8 @@ SPECTRAL_MOMENTS = (NAME_a1, NAME_b1, NAME_a2, NAME_b2)
 SPECTRAL_DIMS = (NAME_F, NAME_D)
 SPACE_TIME_DIMS = (NAME_T, NAME_LON, NAME_LAT)
 
+DatasetWrapperSelf = TypeVar("DatasetWrapperSelf", bound="DatasetWrapper")
+
 
 class DatasetWrapper:
     """
@@ -74,20 +77,22 @@ class DatasetWrapper:
     dataset object itself.
     """
 
-    def __init__(self, dataset: xarray.Dataset):
+    def __init__(self: DatasetWrapperSelf, dataset: xarray.Dataset):
         self.dataset = dataset
 
-    def __getitem__(self, item) -> xarray.DataArray:
+    def __getitem__(
+        self: DatasetWrapperSelf, item: Hashable
+    ) -> Union[DatasetWrapperSelf, xarray.DataArray]:
         return self.dataset.__getitem__(item)
 
-    def __setitem__(self, key, value) -> None:
+    def __setitem__(self: DatasetWrapperSelf, key, value) -> None:
         return self.dataset.__setitem__(key, value)
 
-    def __copy__(self):
+    def __copy__(self: DatasetWrapperSelf):
         cls = self.__class__
         return cls(self.dataset.copy())
 
-    def __len__(self) -> int:
+    def __len__(self: DatasetWrapperSelf) -> int:
         return len(self.dataset)
 
     def copy(self, deep=True):
@@ -127,6 +132,9 @@ class DatasetWrapper:
         return cls(dataset=dataset)
 
 
+WaveSpectrumSelf = TypeVar("WaveSpectrumSelf", bound="WaveSpectrum")
+
+
 class WaveSpectrum(DatasetWrapper):
     frequency_units = "Hertz"
     angular_units = "Degrees"
@@ -151,7 +159,7 @@ class WaveSpectrum(DatasetWrapper):
         "time",
     )
 
-    def __init__(self, dataset: xarray.Dataset):
+    def __init__(self: WaveSpectrumSelf, dataset: xarray.Dataset):
         super(WaveSpectrum, self).__init__(dataset)
 
     def __add__(self, other):
@@ -180,21 +188,21 @@ class WaveSpectrum(DatasetWrapper):
     def __len__(self) -> int:
         return self.number_of_spectra
 
-    def __getitem__(self, item) -> xarray.DataArray:
+    def __getitem__(self: WaveSpectrumSelf, item: Hashable) -> WaveSpectrumSelf:
         if isinstance(item, tuple):
             if len(item) < self.ndims:
                 raise ValueError(
                     "Indexing requires same number of inputs"
                     f"as dimensions: {self.ndims}"
                 )
-            space_time_index = item[: -len(self.dims_spectral)]
+            space_time_index: Hashable = item[: -len(self.dims_spectral)]
         else:
             if not self.ndims == 1:
                 raise ValueError(
                     "Indexing requires same number of inputs"
                     f"as dimensions: {self.ndims}"
                 )
-            space_time_index = []
+            space_time_index = ()
 
         dataset = xarray.Dataset()
         for var in self.dataset:
@@ -667,7 +675,9 @@ class WaveSpectrum(DatasetWrapper):
         :param fmax: maximum frequency
         :return: peak indices
         """
-        return self.e.where(self._range(fmin, fmax), 0).argmax(dim=NAME_F)
+        return xarray.DataArray(
+            self.e.where(self._range(fmin, fmax), 0).argmax(dim=NAME_F)
+        )
 
     def peak_frequency(
         self, fmin=0.0, fmax=np.inf, use_spline=False, **kwargs
@@ -730,7 +740,7 @@ class WaveSpectrum(DatasetWrapper):
         )
         peak_period.name = "peak period"
         try:
-            peak_period = peak_period.drop("frequency")
+            peak_period = peak_period.drop("frequency")  # type: ignore
         except Exception:
             pass
         return peak_period
@@ -738,13 +748,14 @@ class WaveSpectrum(DatasetWrapper):
     def peak_direction(self, fmin=0, fmax=np.inf) -> xarray.DataArray:
         index = self.peak_index(fmin, fmax)
         return self._mean_direction(
-            self.a1.isel(**{NAME_F: index}), self.b1.isel(**{NAME_F: index})
+            self.a1.isel(**{NAME_F: index}),  # type: ignore
+            self.b1.isel(**{NAME_F: index}),  # type: ignore
         )
 
     def peak_directional_spread(self, fmin=0, fmax=np.inf) -> xarray.DataArray:
         index = self.peak_index(fmin, fmax)
-        a1 = self.a1.isel(**{NAME_F: index})
-        b1 = self.b1.isel(**{NAME_F: index})
+        a1 = self.a1.isel(**{NAME_F: index})  # type: ignore
+        b1 = self.b1.isel(**{NAME_F: index})  # type: ignore
         return self._spread(a1, b1)
 
     @staticmethod
@@ -770,7 +781,8 @@ class WaveSpectrum(DatasetWrapper):
 
         property = property.fillna(0)
         return np.trapz(
-            property.isel(**range) * self.e.isel(**range), self.frequency[range]
+            property.isel(**range) * self.e.isel(**range),  # type: ignore
+            self.frequency[range],
         ) / self.m0(fmin, fmax)
 
     def mean_direction(self, fmin=0, fmax=np.inf):
@@ -931,7 +943,9 @@ class WaveSpectrum(DatasetWrapper):
         coordinates: Dict[str, Union[xarray.DataArray, np.ndarray]],
         extrapolation_value: float = 0.0,
     ):
-        dataset = self.__class__(interpolate_dataset_grid(coordinates, self.dataset))
+        dataset = self.__class__(
+            xarray.Dataset(interpolate_dataset_grid(coordinates, self.dataset))
+        )
         dataset.fillna(extrapolation_value)
         return dataset
 
@@ -1243,7 +1257,7 @@ class FrequencyDirectionSpectrum(WaveSpectrum):
         for x in self.dataset:
             if x in SPECTRAL_VARS:
                 continue
-            data[x] = (self.dims_space_time, self.dataset[x].values)
+            data[x] = (self.dims_space_time, self.dataset[x].values)  # type: ignore
 
         return FrequencyDirectionSpectrum(
             xarray.Dataset(data_vars=data, coords=self.coords())
@@ -1326,9 +1340,9 @@ class FrequencySpectrum(WaveSpectrum):
             else:
                 _dataset = _dataset.assign({_name: self.dataset[_name]})
 
-        interpolated_data = interpolate_dataset_grid(
+        interpolated_data = xarray.Dataset(interpolate_dataset_grid(
             coordinates, _dataset, nearest_neighbour
-        )
+        ))
         for name in _moments:
             interpolated_data[name] = (
                 interpolated_data[name] / interpolated_data[NAME_E]
@@ -1408,7 +1422,7 @@ class FrequencySpectrum(WaveSpectrum):
         for x in self.dataset:
             if x in SPECTRAL_VARS:
                 continue
-            data[x] = (self.dims_space_time, self.dataset[x].values)
+            data[x] = (self.dims_space_time, self.dataset[x].values)  # type: ignore
 
         return FrequencyDirectionSpectrum(xarray.Dataset(data_vars=data, coords=coords))
 
@@ -1436,7 +1450,7 @@ def create_1d_spectrum(
         b2 = np.nan + np.ones_like(variance_density)
 
     variables = {
-        NAME_T: np.atleast_1d(to_datetime64(time)),
+        NAME_T: np.atleast_1d(to_datetime64(time)),  # type: ignore
         NAME_LAT: np.atleast_1d(latitude),
         NAME_LON: np.atleast_1d(longitude),
         NAME_DEPTH: np.atleast_1d(depth),
@@ -1474,9 +1488,9 @@ def create_2d_spectrum(
     """
 
     variables = {
-        NAME_T: np.atleast_1d(to_datetime64(time)),
-        NAME_LAT: np.atleast_1d(latitude),
-        NAME_LON: np.atleast_1d(longitude),
+        NAME_T: np.atleast_1d(to_datetime64(time)),  # type: ignore
+        NAME_LAT: np.atleast_1d(latitude),  # type: ignore
+        NAME_LON: np.atleast_1d(longitude),  # type: ignore
         NAME_DEPTH: np.atleast_1d(depth),
         NAME_F: frequency,
         NAME_D: direction,

@@ -45,18 +45,18 @@ class JB23WindInput(ST4WindInput):
         self._tail_stress_parametrization_function = tail_stress_parametrization_jb23
 
     @staticmethod
-    def default_parameters() -> JB23WaveGenerationParameters:
+    def default_parameters() -> JB23WaveGenerationParameters:  # type: ignore
         return JB23WaveGenerationParameters(
             wave_age_tuning_parameter=0.008,
             growth_parameter_betamax=2,
             gravitational_acceleration=GRAVITATIONAL_ACCELERATION,
             charnock_maximum_roughness=np.inf,
             charnock_constant=0.005,
-            air_density=AIR.density,
-            water_density=WATER.density,
-            vonkarman_constant=AIR.vonkarman_constant,
+            air_density=AIR.density,  # type: ignore
+            water_density=WATER.density,  # type: ignore
+            vonkarman_constant=AIR.vonkarman_constant,  # type: ignore
             elevation=10,
-            air_viscosity=AIR.kinematic_viscosity,
+            air_viscosity=AIR.kinematic_viscosity,  # type: ignore
             viscous_stress_parameter=1.0 / 25.0,
             surface_tension=WATER.kinematic_surface_tension,
             width_factor=0.6,

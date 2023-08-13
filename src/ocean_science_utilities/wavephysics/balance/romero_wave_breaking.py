@@ -32,7 +32,7 @@ class RomeroWaveBreaking(Dissipation):
         self._dissipation_function = romero_dissipation_breaking
 
     @staticmethod
-    def default_parameters() -> RomeroWaveBreakingParameters:
+    def default_parameters() -> RomeroWaveBreakingParameters:  # type: ignore
         return RomeroWaveBreakingParameters(
             saturation_breaking_constant=2.5,
             saturation_threshold=0.005,

@@ -29,7 +29,7 @@ class ST6WaveBreaking(Dissipation):
         self._dissipation_function = st6_dissipation
 
     @staticmethod
-    def default_parameters() -> ST6WaveBreakingParameters:
+    def default_parameters() -> ST6WaveBreakingParameters:  # type: ignore
         return ST6WaveBreakingParameters(
             p1=4, p2=4, a1=4.75 * 10**-6, a2=7e-5, saturation_threshold=0.035**2
         )

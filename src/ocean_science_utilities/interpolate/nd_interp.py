@@ -1,6 +1,6 @@
 import numpy as np
 
-from typing import Any, Tuple, Callable, List, Generator, Set, Optional, Dict, Sequence
+from typing import Any, Tuple, Callable, List, Generator, Optional, Dict, Sequence
 
 from ocean_science_utilities.interpolate.general import interpolation_weights_1d
 from ocean_science_utilities.tools.math import wrapped_difference
