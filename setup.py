@@ -4,7 +4,7 @@ with open("README.md", "r") as file:
     readme_contents = file.read()
 
 setuptools.setup(
-    name="ocean-science_utilities",
+    name="ocean_science_utilities",
     version="0.0.0",
     license="Apache 2 License",
     install_requires=[
