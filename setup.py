@@ -4,8 +4,8 @@ with open("README.md", "r") as file:
     readme_contents = file.read()
 
 setuptools.setup(
-    name="ocean_science_utilities",
-    version="0.0.0",
+    name="ocean_science_utils",
+    version="0.0.1",
     license="Apache 2 License",
     install_requires=[
         "pysofar>=0.1.13",
@@ -41,7 +41,11 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    project_urls={"Sofar Ocean Site": "https://www.sofarocean.com"},
+    project_urls={
+        "Sofar Ocean Site": "https://www.sofarocean.com",
+        "Documentation": "https://wavespotter.github.io/ocean-science-utilities/",
+        "Source": "https://github.com/wavespotter/ocean-science-utilities",
+    },
     include_package_data=True,
     package_data={"": ["*.json"]},
 )
